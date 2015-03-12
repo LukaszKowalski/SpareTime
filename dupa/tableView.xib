@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PartyViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" userLabel="leftView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ah-3Q-XqF" userLabel="tableViewView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tpa-Sh-eCN">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="dvH-Kd-QOg"/>
+                                <outlet property="delegate" destination="-1" id="Sau-tZ-OwJ"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Tpa-Sh-eCN" secondAttribute="bottom" constant="8" id="Cjd-Xh-4j7"/>
+                        <constraint firstItem="Tpa-Sh-eCN" firstAttribute="leading" secondItem="8ah-3Q-XqF" secondAttribute="leading" constant="8" id="YK5-bp-pg6"/>
+                        <constraint firstItem="Tpa-Sh-eCN" firstAttribute="height" secondItem="8ah-3Q-XqF" secondAttribute="height" id="evL-67-K4f"/>
+                        <constraint firstAttribute="trailing" secondItem="Tpa-Sh-eCN" secondAttribute="trailing" constant="8" id="wsz-nW-F6r"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="Tpa-Sh-eCN"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="Cjd-Xh-4j7"/>
+                            <exclude reference="YK5-bp-pg6"/>
+                            <exclude reference="evL-67-K4f"/>
+                            <exclude reference="wsz-nW-F6r"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="Tpa-Sh-eCN"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="Cjd-Xh-4j7"/>
+                            <include reference="YK5-bp-pg6"/>
+                            <include reference="evL-67-K4f"/>
+                            <include reference="wsz-nW-F6r"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8ah-3Q-XqF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5CL-qL-POf"/>
+                <constraint firstItem="8ah-3Q-XqF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Ec-zo-7GE"/>
+                <constraint firstAttribute="bottom" secondItem="8ah-3Q-XqF" secondAttribute="bottom" id="M7O-jY-pkp"/>
+                <constraint firstAttribute="trailing" secondItem="8ah-3Q-XqF" secondAttribute="trailing" id="Wbd-EB-qUM"/>
+                <constraint firstAttribute="centerY" secondItem="8ah-3Q-XqF" secondAttribute="centerY" id="cey-Jq-oWH"/>
+                <constraint firstAttribute="centerX" secondItem="8ah-3Q-XqF" secondAttribute="centerX" id="maN-AC-OmY"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="8ah-3Q-XqF"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="5CL-qL-POf"/>
+                    <exclude reference="7Ec-zo-7GE"/>
+                    <exclude reference="M7O-jY-pkp"/>
+                    <exclude reference="Wbd-EB-qUM"/>
+                    <exclude reference="cey-Jq-oWH"/>
+                    <exclude reference="maN-AC-OmY"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="8ah-3Q-XqF"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="5CL-qL-POf"/>
+                    <include reference="7Ec-zo-7GE"/>
+                    <include reference="M7O-jY-pkp"/>
+                    <include reference="Wbd-EB-qUM"/>
+                    <include reference="cey-Jq-oWH"/>
+                    <include reference="maN-AC-OmY"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="590" y="468"/>
+        </view>
+    </objects>
+</document>
