@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dsn-pq-kHx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dsn-pq-kHx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -21,7 +21,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="l70-mI-bVW">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cv-K7-cSb" userLabel="KontenerNaKategorie">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cv-K7-cSb" userLabel="KontenerNaKategorie" customClass="categoryContainer">
                                 <rect key="frame" x="0.0" y="63" width="600" height="540"/>
                                 <subviews>
                                     <view tag="1" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdf-5x-0Bl" userLabel="leftOne">
@@ -44,6 +44,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YIy-Wf-WzV" secondAttribute="height" multiplier="1:1" id="DSF-bW-iO6"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="32" y="225" width="91" height="90"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="32" y="315" width="91" height="90"/>
                                         </variation>
@@ -54,6 +57,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3oN-om-eKK" secondAttribute="height" multiplier="1:1" id="hJ7-WP-03I"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="32" y="342" width="91" height="91"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="32" y="441" width="91" height="91"/>
                                         </variation>
@@ -64,6 +70,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pVB-dJ-tPo" secondAttribute="height" multiplier="1:1" id="my4-YN-oJf"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="32" y="460" width="91" height="91"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="32" y="568" width="91" height="91"/>
                                         </variation>
@@ -123,6 +132,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="gy3-20-nGe" secondAttribute="height" multiplier="1:1" id="TNu-GY-G7R"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="277" y="225" width="91" height="90"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="277" y="315" width="91" height="90"/>
                                         </variation>
@@ -133,6 +145,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rXM-nX-0xh" secondAttribute="height" multiplier="1:1" id="htt-RX-RaR"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="278" y="342" width="91" height="91"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="278" y="441" width="91" height="91"/>
                                         </variation>
@@ -143,6 +158,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ozB-At-zZe" secondAttribute="height" multiplier="1:1" id="wOC-V2-jOr"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="278" y="460" width="91" height="91"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="278" y="568" width="91" height="91"/>
                                         </variation>
@@ -167,6 +185,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="17" id="NQA-av-Y8j"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="69" y="433" width="17" height="27"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="69" y="532" width="17" height="36"/>
                                         </variation>
@@ -191,6 +212,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="17" id="FG3-l4-PKa"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="315" y="315" width="17" height="27"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="315" y="405" width="17" height="36"/>
                                         </variation>
@@ -201,6 +225,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="17" id="ecL-nF-SGz"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="315" y="433" width="17" height="27"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="315" y="532" width="17" height="36"/>
                                         </variation>
@@ -225,6 +252,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="17" id="ARh-2a-kzO"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="69" y="315" width="17" height="27"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="69" y="405" width="17" height="36"/>
                                         </variation>

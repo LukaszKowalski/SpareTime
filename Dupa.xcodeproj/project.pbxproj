@@ -61,6 +61,8 @@
 		C35BE9ED1A80E7330036EFB3 /* 2_small.png in Resources */ = {isa = PBXBuildFile; fileRef = C35BE9EC1A80E7330036EFB3 /* 2_small.png */; };
 		C38294B21A88EB4D00C18124 /* SidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38294B11A88EB4D00C18124 /* SidebarTableViewController.m */; };
 		C3A90ADD1A83823C00556E22 /* tableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A90ADC1A83823C00556E22 /* tableView.xib */; };
+		C3BC28FA1AB2FCD000AB68CB /* categoryContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */; };
+		C3BC28FD1AB3189700AB68CB /* leftViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC28FC1AB3189700AB68CB /* leftViewModel.m */; };
 		C3F53A0C1A8B817B006E5314 /* PartyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F53A0B1A8B817B006E5314 /* PartyTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +142,10 @@
 		C38294B01A88EB4D00C18124 /* SidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarTableViewController.h; sourceTree = "<group>"; };
 		C38294B11A88EB4D00C18124 /* SidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarTableViewController.m; sourceTree = "<group>"; };
 		C3A90ADC1A83823C00556E22 /* tableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableView.xib; sourceTree = "<group>"; };
+		C3BC28F81AB2FCD000AB68CB /* categoryContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = categoryContainer.h; sourceTree = "<group>"; };
+		C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryContainer.m; sourceTree = "<group>"; };
+		C3BC28FB1AB3189700AB68CB /* leftViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftViewModel.h; sourceTree = "<group>"; };
+		C3BC28FC1AB3189700AB68CB /* leftViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftViewModel.m; sourceTree = "<group>"; };
 		C3F53A0A1A8B817B006E5314 /* PartyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartyTableViewCell.h; sourceTree = "<group>"; };
 		C3F53A0B1A8B817B006E5314 /* PartyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartyTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,11 +193,15 @@
 				C35BE9C51A80CB920036EFB3 /* AppDelegate.m */,
 				C35BE9C71A80CB920036EFB3 /* CategoryViewController.h */,
 				C35BE9C81A80CB920036EFB3 /* CategoryViewController.m */,
+				C3BC28F81AB2FCD000AB68CB /* categoryContainer.h */,
+				C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */,
 				C3A90ADC1A83823C00556E22 /* tableView.xib */,
 				C38294B01A88EB4D00C18124 /* SidebarTableViewController.h */,
 				C38294B11A88EB4D00C18124 /* SidebarTableViewController.m */,
 				C337E9EF1A8E3D3C0065F6E3 /* normalCell.xib */,
 				C337E9F11A8E3D4F0065F6E3 /* normalTableViewCell.h */,
+				C3BC28FB1AB3189700AB68CB /* leftViewModel.h */,
+				C3BC28FC1AB3189700AB68CB /* leftViewModel.m */,
 				C337E9F21A8E3D4F0065F6E3 /* normalTableViewCell.m */,
 				C337E9E51A8E2F670065F6E3 /* firstCell.xib */,
 				C337E9E71A8E2FAF0065F6E3 /* firstCellTableViewCell.h */,
@@ -424,8 +434,10 @@
 				C35BE9C61A80CB920036EFB3 /* AppDelegate.m in Sources */,
 				C35BE9C31A80CB920036EFB3 /* main.m in Sources */,
 				C3F53A0C1A8B817B006E5314 /* PartyTableViewCell.m in Sources */,
+				C3BC28FA1AB2FCD000AB68CB /* categoryContainer.m in Sources */,
 				C38294B21A88EB4D00C18124 /* SidebarTableViewController.m in Sources */,
 				C337E9F31A8E3D4F0065F6E3 /* normalTableViewCell.m in Sources */,
+				C3BC28FD1AB3189700AB68CB /* leftViewModel.m in Sources */,
 				C337E9E91A8E2FAF0065F6E3 /* firstCellTableViewCell.m in Sources */,
 				C337E9EC1A8E34700065F6E3 /* separatorTableViewCell.m in Sources */,
 			);

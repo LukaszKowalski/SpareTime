@@ -7,11 +7,14 @@
 //
 
 #import "firstCellTableViewCell.h"
+#import "leftViewModel.h"
 
 @implementation firstCellTableViewCell
 
 - (void)awakeFromNib {
     
+    self.categoryName.text = [[leftViewModel sharedInstance] getSideBarCategory];
+    NSLog(@"zzz %@", self.categoryName.text);
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blur];
     
@@ -25,6 +28,9 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+- (void)dupa{
+    NSLog(@"ddupa");
 }
 
 @end

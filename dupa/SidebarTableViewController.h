@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) UIView *search;
 @property (nonatomic, assign) BOOL cellOpened;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end

@@ -8,6 +8,7 @@
 
 #import "CategoryViewController.h"
 #import "SidebarTableViewController.h"
+#import "leftViewModel.h"
 
 @interface CategoryViewController ()
 @property (weak, nonatomic) UIView *category;
@@ -32,6 +33,7 @@
     
     self.leftView = [[SidebarTableViewController alloc] init];
     self.leftView.view.frame = CGRectMake(-xForTableView, 0, self.categoryContainer.frame.size.width, self.view.frame.size.height);
+    
     NSLog(@"frame boczny %f", self.leftView.view.frame.origin.x);
     [self.categoryContainer addSubview:self.leftView.view];
 
@@ -159,10 +161,67 @@
     
     [self.category addSubview:self.buttonName];
     
-//    [button addTarget:self action:@selector(buttonFired:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(buttonFired:) forControlEvents:UIControlEventTouchUpInside];
 //    [self.view addSubview:self.category];
     
 }
+
+- (void)buttonFired:(id)sender{
+    
+    NSLog(@"sender: %@", sender);
+    
+    UIView *buttonContent = [sender superview];
+    NSLog(@"buttonContent :%@", buttonContent);
+
+    UIView *buttonLayer = [buttonContent viewWithTag:16];
+    
+    UIImageView *buttonImageInView = (UIImageView*)[buttonContent viewWithTag:17];
+    
+    UILabel *buttonNameInView = (UILabel *)[buttonContent viewWithTag:18];
+    
+    SpareTimeCategoryButton *button = (SpareTimeCategoryButton *)sender;
+    
+    NSLog(@"button: %@", button);
+    if (button.buttonClicked == YES) {
+    
+        [self.background setImage:[UIImage imageNamed:@"background"]];
+        
+        buttonLayer.backgroundColor = [UIColor blackColor];
+        buttonNameInView.hidden = YES;
+        buttonImageInView.hidden = NO;
+        button.buttonClicked = NO;
+        
+
+}
+    else if (button.buttonClicked == NO){
+
+        [UIView animateWithDuration:5.0 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self.background setImage:[UIImage imageNamed:[self.backgroundsWithTags objectForKey:[NSString stringWithFormat:@"%ld",(long)[sender tag]-1]]]];
+        } completion:^(BOOL finished) {
+            
+            [[leftViewModel sharedInstance] sideBarCategory:[(UILabel *)[buttonContent viewWithTag:18] text]];
+
+        }];
+        
+        [self.background setImage:[UIImage imageNamed:[self.backgroundsWithTags objectForKey:[NSString stringWithFormat:@"%ld",(long)[sender tag]-1]]]];
+        buttonLayer.backgroundColor = [UIColor redColor];
+        buttonNameInView.hidden = NO;
+        buttonImageInView.hidden = YES;
+        button.buttonClicked = YES;
+        [self animateCircle:buttonLayer];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"resetsideBar" object:nil];
+        
+    }
+}
+
+- (void) animateCircle:(UIView *)view{
+    
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.duration = 0.2;
+    scaleAnimation.fromValue = [NSNumber numberWithFloat:.0];
+    scaleAnimation.toValue = [NSNumber numberWithFloat:1];
+    
+    [view.layer addAnimation:scaleAnimation forKey:@"scale"];}
 
 - (void)handleGesture:(UIPanGestureRecognizer *)gestureRecognizer
 {
@@ -196,6 +255,7 @@
         
         if (start.x < change.x && self.categoryContainer.frame.origin.x > 0.3 * self.view.frame.size.width) {
             NSLog(@"moving left");
+            
             [self animateToSideBar];
         }
         NSLog(@"end: %@", NSStringFromCGPoint(end));
@@ -204,11 +264,6 @@
         }
     }
     
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
-    return YES;
 }
 
 

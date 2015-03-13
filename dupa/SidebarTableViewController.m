@@ -32,6 +32,7 @@
     
     [super viewDidLoad];
     
+    
     self.search = [[UIView alloc] initWithFrame:CGRectMake(8, 8, 274, 36)];
     self.search.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.search];
@@ -45,9 +46,20 @@
     [self.search addSubview: serchTextField];
     
     //    [self.view addSubview:self.tableView];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(resetTableView)
+                                                 name:@"resetsideBar"
+                                               object:nil];
     
 }
+
+
+
 -(void)resetTableView{
+
+//    [self.tableView reloadData];
+    //    [self setTableViewSource];
+    NSLog(@"reset");
 
 }
 
