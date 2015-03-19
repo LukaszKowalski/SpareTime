@@ -110,26 +110,29 @@
     if (indexPath.row % 2 != 0){
         return 16;
     }
+    if ([self.expandedPaths containsObject:indexPath]) {
+        return 300;
+    }
     return 190;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    PartyTableViewCell *cell = (PartyTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     
-//    if(self.expandedPaths == nil) {
-//        self.expandedPaths = [[NSMutableArray alloc] init];
-//    }
-//    
-//    if([self.expandedPaths containsObject:indexPath]) {
-//        [self.expandedPaths removeObject:indexPath];
-//        
-//    } else {
-//        [self.expandedPaths addObject:indexPath];
-//    }
-//    
-//    NSLog(@"komorki rozszerzone %@", self.expandedPaths);
-//    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-//
+    if(self.expandedPaths == nil) {
+        self.expandedPaths = [[NSMutableArray alloc] init];
+    }
+    
+    if([self.expandedPaths containsObject:indexPath]) {
+        [self.expandedPaths removeObject:indexPath];
+        
+    } else {
+        [self.expandedPaths addObject:indexPath];
+    }
+    
+    NSLog(@"komorki rozszerzone %@", [NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:0]]);
+    
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    
     NSLog(@"DOTKNALEM %ld", (long)indexPath.row);
 
 }

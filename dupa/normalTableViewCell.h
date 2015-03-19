@@ -10,4 +10,6 @@
 
 @interface normalTableViewCell : UITableViewCell
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier cellOpened:(BOOL)cellOpened;
+
 @end
