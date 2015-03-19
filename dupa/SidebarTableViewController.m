@@ -28,11 +28,11 @@
 
 - (void)viewDidLoad
 {
-    self.view = [[[NSBundle mainBundle] loadNibNamed:@"tableView" owner:self options:nil] firstObject];
     
     [super viewDidLoad];
     
-    
+    self.view = [[[NSBundle mainBundle] loadNibNamed:@"tableView" owner:self options:nil]objectAtIndex:0];
+    [self.view addSubview:self.contentTableView];
     self.search = [[UIView alloc] initWithFrame:CGRectMake(8, 8, 274, 36)];
     self.search.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.search];
@@ -50,16 +50,18 @@
                                              selector:@selector(resetTableView)
                                                  name:@"resetsideBar"
                                                object:nil];
-    
 }
 
 
 
 -(void)resetTableView{
+    
+  
 
-//    [self.tableView reloadData];
-    //    [self setTableViewSource];
+    [self.contentTableView reloadData];
     NSLog(@"reset");
+    [self.view layoutIfNeeded];
+    
 
 }
 
@@ -162,11 +164,11 @@
 //    }else{
 //        self.cellOpened = NO;
 //    }
-    firstCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:firstCellIdentifier];
+    firstCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:firstCellIdentifier ];
     separatorTableViewCell *separatorCell = [tableView dequeueReusableCellWithIdentifier:separatorCellIdentifier];
     normalTableViewCell *normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
     
-    if (cell == nil && indexPath.row == 0) {
+    if (indexPath.row == 0) {
         [tableView registerNib:[UINib nibWithNibName:@"firstCell" bundle:nil] forCellReuseIdentifier:firstCellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:firstCellIdentifier];
         return cell;

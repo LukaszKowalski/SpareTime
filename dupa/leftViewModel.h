@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SidebarTableViewController.h"
 
 @interface leftViewModel : NSObject
 
@@ -15,5 +16,6 @@
 + (leftViewModel *)sharedInstance;   // class method to return the singleton object
 - (void)sideBarCategory:(NSString *)categoryName;
 - (NSString *)getSideBarCategory;
+- (void)reloadTableView;
 
 @end

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SidebarTableViewController : UIViewController
+@interface SidebarTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UIView *search;
 @property (nonatomic, assign) BOOL cellOpened;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *contentTableView;
 
 
 @end

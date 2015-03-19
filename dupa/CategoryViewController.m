@@ -12,7 +12,7 @@
 
 @interface CategoryViewController ()
 @property (weak, nonatomic) UIView *category;
-@property (strong, nonatomic) SidebarTableViewController *leftView;
+@property (strong, nonatomic) SidebarTableViewController *sidebar;
 @property (weak, nonatomic) IBOutlet UIView *categoryContainer;
 @property float oldX;
 @property BOOL draggedToLeftView;
@@ -31,11 +31,11 @@
     self.draggedToLeftView = NO;
     float xForTableView = self.categoryContainer.frame.size.width;
     
-    self.leftView = [[SidebarTableViewController alloc] init];
-    self.leftView.view.frame = CGRectMake(-xForTableView, 0, self.categoryContainer.frame.size.width, self.view.frame.size.height);
+    self.sidebar = [[SidebarTableViewController alloc] init];
+    self.sidebar.view.frame = CGRectMake(-xForTableView, 0, self.categoryContainer.frame.size.width, self.view.frame.size.height);
     
-    NSLog(@"frame boczny %f", self.leftView.view.frame.origin.x);
-    [self.categoryContainer addSubview:self.leftView.view];
+    NSLog(@"frame boczny %f", self.sidebar.view.frame.origin.x);
+    [self.categoryContainer addSubview:self.sidebar.view];
 
     self.draggedToLeftView = NO;
 
@@ -43,6 +43,7 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
@@ -200,7 +201,7 @@
         } completion:^(BOOL finished) {
             
             [[leftViewModel sharedInstance] sideBarCategory:[(UILabel *)[buttonContent viewWithTag:18] text]];
-
+            [[leftViewModel sharedInstance] reloadTableView];
         }];
         
         [self.background setImage:[UIImage imageNamed:[self.backgroundsWithTags objectForKey:[NSString stringWithFormat:@"%ld",(long)[sender tag]-1]]]];
@@ -209,7 +210,6 @@
         buttonImageInView.hidden = YES;
         button.buttonClicked = YES;
         [self animateCircle:buttonLayer];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"resetsideBar" object:nil];
         
     }
 }

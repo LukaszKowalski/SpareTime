@@ -33,8 +33,10 @@ static leftViewModel *sharedBarInstance = nil;    // static instance variable
 - (NSString *)getSideBarCategory{
     return self.currentCategory;
 }
+- (void) reloadTableView{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"resetsideBar" object:nil];
 
-
+}
 
 
 @end

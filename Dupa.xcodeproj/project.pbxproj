@@ -45,6 +45,7 @@
 		C315E19B1A82532C009CEC71 /* Minus.png in Resources */ = {isa = PBXBuildFile; fileRef = C315E1761A82532C009CEC71 /* Minus.png */; };
 		C315E19C1A82532C009CEC71 /* meeting.png in Resources */ = {isa = PBXBuildFile; fileRef = C315E1771A82532C009CEC71 /* meeting.png */; };
 		C315E19F1A825CB8009CEC71 /* SpareTimeCategoryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C315E19E1A825CB8009CEC71 /* SpareTimeCategoryButton.m */; };
+		C31FC18B1AB9CE2C00F0E20A /* contentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31FC18A1AB9CE2C00F0E20A /* contentTableView.xib */; };
 		C337E9E61A8E2F670065F6E3 /* firstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C337E9E51A8E2F670065F6E3 /* firstCell.xib */; };
 		C337E9E91A8E2FAF0065F6E3 /* firstCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C337E9E81A8E2FAF0065F6E3 /* firstCellTableViewCell.m */; };
 		C337E9EC1A8E34700065F6E3 /* separatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C337E9EB1A8E34700065F6E3 /* separatorTableViewCell.m */; };
@@ -116,6 +117,7 @@
 		C315E1771A82532C009CEC71 /* meeting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meeting.png; sourceTree = "<group>"; };
 		C315E19D1A825CB8009CEC71 /* SpareTimeCategoryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpareTimeCategoryButton.h; sourceTree = "<group>"; };
 		C315E19E1A825CB8009CEC71 /* SpareTimeCategoryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpareTimeCategoryButton.m; sourceTree = "<group>"; };
+		C31FC18A1AB9CE2C00F0E20A /* contentTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = contentTableView.xib; sourceTree = "<group>"; };
 		C337E9E51A8E2F670065F6E3 /* firstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = firstCell.xib; sourceTree = "<group>"; };
 		C337E9E71A8E2FAF0065F6E3 /* firstCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstCellTableViewCell.h; sourceTree = "<group>"; };
 		C337E9E81A8E2FAF0065F6E3 /* firstCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstCellTableViewCell.m; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		C35BE9B41A80CB920036EFB3 = {
 			isa = PBXGroup;
 			children = (
+				C31FC18A1AB9CE2C00F0E20A /* contentTableView.xib */,
 				C35BE9BF1A80CB920036EFB3 /* SpareTimeStoryboard */,
 				C35BE9D91A80CB920036EFB3 /* SpareTimeStoryboardTests */,
 				C35BE9BE1A80CB920036EFB3 /* Products */,
@@ -382,6 +385,7 @@
 				C315E1971A82532C009CEC71 /* food.png in Resources */,
 				C315E19C1A82532C009CEC71 /* meeting.png in Resources */,
 				C315E1951A82532C009CEC71 /* smoke.png in Resources */,
+				C31FC18B1AB9CE2C00F0E20A /* contentTableView.xib in Resources */,
 				C315E1831A82532C009CEC71 /* bck_club.png in Resources */,
 				C315E1891A82532C009CEC71 /* bck_bike.png in Resources */,
 				C315E17B1A82532C009CEC71 /* background.png in Resources */,
