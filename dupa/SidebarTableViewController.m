@@ -68,17 +68,17 @@
 
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y >= Category_Box_Height) {
-        self.search.backgroundColor = [UIColor blueColor];
-        
-    }
-    if (scrollView.contentOffset.y < Category_Box_Height) {
-        self.search.backgroundColor = [UIColor clearColor];
-        
-    }
-    
-}
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    if (scrollView.contentOffset.y >= Category_Box_Height) {
+//        self.search.backgroundColor = [UIColor blueColor];
+//        
+//    }
+//    if (scrollView.contentOffset.y < Category_Box_Height) {
+//        self.search.backgroundColor = [UIColor clearColor];
+//        
+//    }
+//    
+//}
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
@@ -132,12 +132,8 @@
         [self.expandedPaths addObject:indexPath];
     }
     
-    NSLog(@"komorki rozszerzone %@", [NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]]);
-    
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationNone];
     
-    NSLog(@"DOTKNALEM %ld", (long)indexPath.row);
-
 }
 
 #pragma mark -
@@ -191,48 +187,33 @@
 }
 
 -(void)headerClicked:(UIButton *) sender{
-    NSLog(@"Kamil to kutas");
-
-//    NSNumber *sectionNumber = [NSNumber numberWithInteger:sender.tag];
-//    
-//    if(self.set_OpenIndex == nil) {
-//        self.set_OpenIndex = [[NSMutableSet alloc] init];
-//    }
-//
-//    if([self.set_OpenIndex containsObject:sectionNumber]) {
-//        [self.set_OpenIndex removeObject:sectionNumber];
-//
-//    } else {
-//        [self.set_OpenIndex addObject:sectionNumber];
-//    }
-
-    
 
     if ([self.set_OpenIndex containsObject:[NSNumber numberWithUnsignedInteger:sender.tag]]) {
         [self.set_OpenIndex removeObject:[NSNumber numberWithUnsignedInteger:sender.tag]];
-        [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationNone];
     }
     else{
+        
 
         if (self.set_OpenIndex.count > 0) {
             //--- a header is opened already, close the previous one before opening the other
-
+            
             [UIView animateWithDuration:0.5 animations:^{
                 [self.set_OpenIndex enumerateObjectsUsingBlock:^(id obj, BOOL *stop){
                     [self.set_OpenIndex removeObject:obj];
-                    [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:[obj integerValue]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:[obj integerValue]] withRowAnimation:UITableViewRowAnimationNone];
 
                 }];
             } completion:^(BOOL finished){
 
                 [self.set_OpenIndex addObject:[NSNumber numberWithUnsignedInteger:sender.tag]];
-                [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationNone];
 
             }];
         }
         else{
             [self.set_OpenIndex addObject:[NSNumber numberWithUnsignedInteger:sender.tag]];
-            [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationFade];
         }
     }
 

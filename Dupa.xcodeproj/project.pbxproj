@@ -61,6 +61,7 @@
 		C35BE9DD1A80CB920036EFB3 /* dupaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C35BE9DC1A80CB920036EFB3 /* dupaTests.m */; };
 		C35BE9ED1A80E7330036EFB3 /* 2_small.png in Resources */ = {isa = PBXBuildFile; fileRef = C35BE9EC1A80E7330036EFB3 /* 2_small.png */; };
 		C38294B21A88EB4D00C18124 /* SidebarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C38294B11A88EB4D00C18124 /* SidebarTableViewController.m */; };
+		C39998551ABC7C50007D88D1 /* uncollapsedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39998541ABC7C50007D88D1 /* uncollapsedCell.xib */; };
 		C3A90ADD1A83823C00556E22 /* tableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A90ADC1A83823C00556E22 /* tableView.xib */; };
 		C3BC28FA1AB2FCD000AB68CB /* categoryContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */; };
 		C3BC28FD1AB3189700AB68CB /* leftViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC28FC1AB3189700AB68CB /* leftViewModel.m */; };
@@ -143,6 +144,7 @@
 		C35BE9EC1A80E7330036EFB3 /* 2_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_small.png; sourceTree = "<group>"; };
 		C38294B01A88EB4D00C18124 /* SidebarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarTableViewController.h; sourceTree = "<group>"; };
 		C38294B11A88EB4D00C18124 /* SidebarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarTableViewController.m; sourceTree = "<group>"; };
+		C39998541ABC7C50007D88D1 /* uncollapsedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uncollapsedCell.xib; sourceTree = "<group>"; };
 		C3A90ADC1A83823C00556E22 /* tableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableView.xib; sourceTree = "<group>"; };
 		C3BC28F81AB2FCD000AB68CB /* categoryContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = categoryContainer.h; sourceTree = "<group>"; };
 		C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryContainer.m; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				C38294B01A88EB4D00C18124 /* SidebarTableViewController.h */,
 				C38294B11A88EB4D00C18124 /* SidebarTableViewController.m */,
 				C337E9EF1A8E3D3C0065F6E3 /* normalCell.xib */,
+				C39998541ABC7C50007D88D1 /* uncollapsedCell.xib */,
 				C337E9F11A8E3D4F0065F6E3 /* normalTableViewCell.h */,
 				C337E9F21A8E3D4F0065F6E3 /* normalTableViewCell.m */,
 				C3BC28FB1AB3189700AB68CB /* leftViewModel.h */,
@@ -410,6 +413,7 @@
 				C315E19A1A82532C009CEC71 /* plus.png in Resources */,
 				C3A90ADD1A83823C00556E22 /* tableView.xib in Resources */,
 				C315E1981A82532C009CEC71 /* games.png in Resources */,
+				C39998551ABC7C50007D88D1 /* uncollapsedCell.xib in Resources */,
 				C337E9F01A8E3D3C0065F6E3 /* normalCell.xib in Resources */,
 				C315E18B1A82532C009CEC71 /* bck_sex.png in Resources */,
 				C315E1941A82532C009CEC71 /* bike.png in Resources */,
