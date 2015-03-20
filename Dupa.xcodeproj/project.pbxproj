@@ -65,6 +65,12 @@
 		C3A90ADD1A83823C00556E22 /* tableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A90ADC1A83823C00556E22 /* tableView.xib */; };
 		C3BC28FA1AB2FCD000AB68CB /* categoryContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */; };
 		C3BC28FD1AB3189700AB68CB /* leftViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC28FC1AB3189700AB68CB /* leftViewModel.m */; };
+		C3DEA8431ABCBE3500BE1134 /* gwiazda.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA8421ABCBE3500BE1134 /* gwiazda.png */; };
+		C3DEA8451ABCBEC100BE1134 /* nawigacja.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA8441ABCBEC100BE1134 /* nawigacja.png */; };
+		C3DEA8471ABCCAC000BE1134 /* strzalka.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA8461ABCCAC000BE1134 /* strzalka.png */; };
+		C3DEA8491ABCCB4900BE1134 /* trailer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA8481ABCCB4900BE1134 /* trailer.png */; };
+		C3DEA84B1ABCCE0E00BE1134 /* plakat2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA84A1ABCCE0E00BE1134 /* plakat2.jpg */; };
+		C3DEA84E1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DEA84D1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m */; };
 		C3F53A0C1A8B817B006E5314 /* PartyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F53A0B1A8B817B006E5314 /* PartyTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +156,13 @@
 		C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryContainer.m; sourceTree = "<group>"; };
 		C3BC28FB1AB3189700AB68CB /* leftViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftViewModel.h; sourceTree = "<group>"; };
 		C3BC28FC1AB3189700AB68CB /* leftViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftViewModel.m; sourceTree = "<group>"; };
+		C3DEA8421ABCBE3500BE1134 /* gwiazda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gwiazda.png; sourceTree = "<group>"; };
+		C3DEA8441ABCBEC100BE1134 /* nawigacja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nawigacja.png; sourceTree = "<group>"; };
+		C3DEA8461ABCCAC000BE1134 /* strzalka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strzalka.png; sourceTree = "<group>"; };
+		C3DEA8481ABCCB4900BE1134 /* trailer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trailer.png; sourceTree = "<group>"; };
+		C3DEA84A1ABCCE0E00BE1134 /* plakat2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plakat2.jpg; sourceTree = "<group>"; };
+		C3DEA84C1ABCCF5D00BE1134 /* uncollapsedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uncollapsedTableViewCell.h; sourceTree = "<group>"; };
+		C3DEA84D1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uncollapsedTableViewCell.m; sourceTree = "<group>"; };
 		C3F53A0A1A8B817B006E5314 /* PartyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartyTableViewCell.h; sourceTree = "<group>"; };
 		C3F53A0B1A8B817B006E5314 /* PartyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartyTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,9 +217,11 @@
 				C38294B01A88EB4D00C18124 /* SidebarTableViewController.h */,
 				C38294B11A88EB4D00C18124 /* SidebarTableViewController.m */,
 				C337E9EF1A8E3D3C0065F6E3 /* normalCell.xib */,
-				C39998541ABC7C50007D88D1 /* uncollapsedCell.xib */,
 				C337E9F11A8E3D4F0065F6E3 /* normalTableViewCell.h */,
 				C337E9F21A8E3D4F0065F6E3 /* normalTableViewCell.m */,
+				C39998541ABC7C50007D88D1 /* uncollapsedCell.xib */,
+				C3DEA84C1ABCCF5D00BE1134 /* uncollapsedTableViewCell.h */,
+				C3DEA84D1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m */,
 				C3BC28FB1AB3189700AB68CB /* leftViewModel.h */,
 				C3BC28FC1AB3189700AB68CB /* leftViewModel.m */,
 				C337E9E51A8E2F670065F6E3 /* firstCell.xib */,
@@ -232,10 +247,14 @@
 			isa = PBXGroup;
 			children = (
 				C35BE9EC1A80E7330036EFB3 /* 2_small.png */,
+				C3DEA8481ABCCB4900BE1134 /* trailer.png */,
 				C315E1531A82532C009CEC71 /* kawa1.png */,
 				C315E1541A82532C009CEC71 /* kawa2.png */,
+				C3DEA84A1ABCCE0E00BE1134 /* plakat2.jpg */,
 				C315E1551A82532C009CEC71 /* kawa3.png */,
+				C3DEA8461ABCCAC000BE1134 /* strzalka.png */,
 				C315E1561A82532C009CEC71 /* background.png */,
+				C3DEA8441ABCBEC100BE1134 /* nawigacja.png */,
 				C315E1571A82532C009CEC71 /* background1.jpg */,
 				C315E1581A82532C009CEC71 /* play.png */,
 				C315E1591A82532C009CEC71 /* beer.png */,
@@ -267,6 +286,7 @@
 				C315E1731A82532C009CEC71 /* games.png */,
 				C315E1741A82532C009CEC71 /* sex.png */,
 				C315E1751A82532C009CEC71 /* plus.png */,
+				C3DEA8421ABCBE3500BE1134 /* gwiazda.png */,
 				C315E1761A82532C009CEC71 /* Minus.png */,
 				C315E1771A82532C009CEC71 /* meeting.png */,
 				C35BE9C11A80CB920036EFB3 /* Info.plist */,
@@ -374,8 +394,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C315E19B1A82532C009CEC71 /* Minus.png in Resources */,
+				C3DEA84B1ABCCE0E00BE1134 /* plakat2.jpg in Resources */,
 				C35BE9ED1A80E7330036EFB3 /* 2_small.png in Resources */,
 				C315E18F1A82532C009CEC71 /* bck_walk.png in Resources */,
+				C3DEA8471ABCCAC000BE1134 /* strzalka.png in Resources */,
+				C3DEA8491ABCCB4900BE1134 /* trailer.png in Resources */,
+				C3DEA8431ABCBE3500BE1134 /* gwiazda.png in Resources */,
 				C315E1931A82532C009CEC71 /* culture.png in Resources */,
 				C315E1901A82532C009CEC71 /* club.png in Resources */,
 				C315E1841A82532C009CEC71 /* bck_coffee.png in Resources */,
@@ -389,6 +413,7 @@
 				C315E19C1A82532C009CEC71 /* meeting.png in Resources */,
 				C315E1951A82532C009CEC71 /* smoke.png in Resources */,
 				C31FC18B1AB9CE2C00F0E20A /* contentTableView.xib in Resources */,
+				C3DEA8451ABCBEC100BE1134 /* nawigacja.png in Resources */,
 				C315E1831A82532C009CEC71 /* bck_club.png in Resources */,
 				C315E1891A82532C009CEC71 /* bck_bike.png in Resources */,
 				C315E17B1A82532C009CEC71 /* background.png in Resources */,
@@ -447,6 +472,7 @@
 				C337E9F31A8E3D4F0065F6E3 /* normalTableViewCell.m in Sources */,
 				C3BC28FD1AB3189700AB68CB /* leftViewModel.m in Sources */,
 				C337E9E91A8E2FAF0065F6E3 /* firstCellTableViewCell.m in Sources */,
+				C3DEA84E1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m in Sources */,
 				C337E9EC1A8E34700065F6E3 /* separatorTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

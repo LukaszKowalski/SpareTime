@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "uncollapsedTableViewCell.h"
 
 @interface SidebarTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

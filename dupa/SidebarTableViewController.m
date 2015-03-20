@@ -114,7 +114,7 @@
         return 16;
     }
     if ([self.expandedPaths containsObject:indexPath]) {
-        return 300;
+        return 510;
     }
     return 190;
 }
@@ -226,34 +226,31 @@
     static NSString *firstCellIdentifier = @"firstCell";
     static NSString *separatorCellIdentifier = @"separatorCell";
     static NSString *normalCellIdentifier = @"normalCell";
+    static NSString *uncollapsedCellIdentifier = @"uncollapsedCell";
 
-//    
-//    
-//    if([self.expandedPaths containsObject:indexPath]) {
-//        self.cellOpened = YES;
-//    }else{
-//        self.cellOpened = NO;
-//    }
+
     firstCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:firstCellIdentifier ];
     separatorTableViewCell *separatorCell = [tableView dequeueReusableCellWithIdentifier:separatorCellIdentifier];
     normalTableViewCell *normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+    uncollapsedTableViewCell *uncollapsedCell = [tableView dequeueReusableCellWithIdentifier:uncollapsedCellIdentifier];
+
     
-//    if (indexPath.row == 1) {
-//        [tableView registerNib:[UINib nibWithNibName:@"firstCell" bundle:nil] forCellReuseIdentifier:firstCellIdentifier];
-//        cell = [tableView dequeueReusableCellWithIdentifier:firstCellIdentifier];
-//        return cell;
-//    }
-    if (indexPath.row % 2 == 0) {
+    if (indexPath.row % 2 == 0 ) {
         [tableView registerNib:[UINib nibWithNibName:@"separator" bundle:nil] forCellReuseIdentifier:separatorCellIdentifier];
         separatorCell = [tableView dequeueReusableCellWithIdentifier:separatorCellIdentifier];
         return separatorCell;
     }
-    if (indexPath.row % 2 != 0) {
+    if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath]) {
         [tableView registerNib:[UINib nibWithNibName:@"normalCell" bundle:nil] forCellReuseIdentifier:normalCellIdentifier];
         normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
         return normalCell;
     }
+    if([self.expandedPaths containsObject:indexPath]) {
+        [tableView registerNib:[UINib nibWithNibName:@"uncollapsedCell" bundle:nil] forCellReuseIdentifier:uncollapsedCellIdentifier];
+        uncollapsedCell = [tableView dequeueReusableCellWithIdentifier:uncollapsedCellIdentifier];
+        return uncollapsedCell;
 
+    }
     
     return cell;
 }
