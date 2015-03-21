@@ -32,7 +32,7 @@
     float xForTableView = self.categoryContainer.frame.size.width;
     
     self.sidebar = [[SidebarTableViewController alloc] init];
-    self.sidebar.view.frame = CGRectMake(-xForTableView, 0, self.categoryContainer.frame.size.width, self.view.frame.size.height);
+    self.sidebar.view.frame = CGRectMake(-xForTableView, -44, self.categoryContainer.frame.size.width, self.view.frame.size.height);
     
     NSLog(@"frame boczny %f", self.sidebar.view.frame.origin.x);
     [self.categoryContainer addSubview:self.sidebar.view];

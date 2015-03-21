@@ -33,12 +33,26 @@
     [super viewDidLoad];
     
     self.view = [[[NSBundle mainBundle] loadNibNamed:@"tableView" owner:self options:nil]objectAtIndex:0];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, -250, self.view.frame.size.width, self.view.frame.size.height);
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
+    self.contentTableView.contentInset =  UIEdgeInsetsMake(64, 0, 0, 0);
+    
     [self.view addSubview:self.contentTableView];
     self.search = [[UIView alloc] initWithFrame:CGRectMake(8, 8, 274, 36)];
     self.search.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.search];
     
+//    self.edgesForExtendedLayout=UIRectEdgeNone;
+//    self.extendedLayoutIncludesOpaqueBars=NO;
+//    self.automaticallyAdjustsScrollViewInsets=NO;
+
+    
     UITextField *serchTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 5, 274, 36)];
+    
+    NSLog(@"view frame %@", NSStringFromCGRect(self.view.frame));
+    NSLog(@"tableview frame %@", NSStringFromCGRect(self.contentTableView.frame));
+
     
     UIColor *color = [UIColor whiteColor];
     serchTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Szukaj" attributes:@{NSForegroundColorAttributeName: color}];
@@ -48,6 +62,8 @@
     [self.search addSubview: serchTextField];
     
     self.contentTableView.backgroundColor = [UIColor clearColor];
+    self.contentTableView.frame = CGRectMake(self.contentTableView.frame.origin.x, -150, self.contentTableView.frame.size.width, self.contentTableView.frame.size.height);
+    
     self.set_OpenIndex = [[NSMutableSet alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(resetTableView)
@@ -118,6 +134,7 @@
     }
     return 190;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -141,7 +158,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -150,7 +167,7 @@
         return 0;
     }
     if ([self.set_OpenIndex containsObject:[NSNumber numberWithInteger:section]]) {
-        return 5; // or what ever is the number of rows
+        return 15; // or what ever is the number of rows
     }
     
     return 0;
