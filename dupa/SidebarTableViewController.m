@@ -22,6 +22,8 @@
 
 @property (nonatomic, strong) NSMutableArray *expandedPaths;
 @property (nonatomic, strong) NSMutableSet *set_OpenIndex;
+@property (nonatomic, strong) NSArray *cinemaNames;
+@property (assign, nonatomic) CGPoint lastContentOffset;
 
 @end
 
@@ -43,10 +45,6 @@
     self.search.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.search];
     
-//    self.edgesForExtendedLayout=UIRectEdgeNone;
-//    self.extendedLayoutIncludesOpaqueBars=NO;
-//    self.automaticallyAdjustsScrollViewInsets=NO;
-
     
     UITextField *serchTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 5, 274, 36)];
     
@@ -69,7 +67,12 @@
                                              selector:@selector(resetTableView)
                                                  name:@"resetsideBar"
                                                object:nil];
+    [self getCinemasNames];
 }
+-(void)getCinemasNames{
+    self.cinemaNames = [[leftViewModel sharedInstance] getCinemaNames];
+}
+
 
 
 
@@ -84,26 +87,21 @@
 
 }
 
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    if (scrollView.contentOffset.y >= Category_Box_Height) {
-//        self.search.backgroundColor = [UIColor blueColor];
-//        
-//    }
-//    if (scrollView.contentOffset.y < Category_Box_Height) {
-//        self.search.backgroundColor = [UIColor clearColor];
-//        
-//    }
-//    
-//}
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (indexPath.row == 0) {
-//        return 88;
-//    }
-//    return 250;
-//    
-//}
+-(void) scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGPoint currentOffset = scrollView.contentOffset;
+    if (currentOffset.y > self.lastContentOffset.y)
+    {
+        NSLog(@"downward");
+        // Downward
+    }
+    else
+    {
+        NSLog(@"upward");
+        // Upward
+    }
+    self.lastContentOffset = currentOffset;
+}
 
 
 #pragma mark -
@@ -158,7 +156,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 50;
+    return self.cinemaNames.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -191,16 +189,22 @@
         return view;
     }
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 36)];
+    UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 36)];
+    sectionView.backgroundColor = [UIColor colorWithRed:109/255.0 green:40/255.0 blue:104.0/255 alpha:1.0];
+    UILabel *sectionName = [[UILabel alloc] initWithFrame:CGRectMake(6, 4, 200, 20)];
+    sectionName.text = [self.cinemaNames objectAtIndex:section];
+    sectionName.textColor = [UIColor whiteColor];
+    [sectionView addSubview:sectionName];
+    
     UIButton *headerClick = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 36)];
     headerClick.tag = section;
-    headerClick.backgroundColor = [UIColor whiteColor];
+    headerClick.backgroundColor = [UIColor clearColor];
     /* Create custom view to display section header... */
     [headerClick addTarget:self action:@selector(headerClicked:) forControlEvents:UIControlEventTouchUpInside];
     headerClick.titleLabel.text = [NSString stringWithFormat:@"headerClick %ld", (long)section];
    
-    [view addSubview:headerClick];
-    return view;
+    [sectionView addSubview:headerClick];
+    return sectionView;
 }
 
 -(void)headerClicked:(UIButton *) sender{
@@ -239,7 +243,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *cellIdentifier = @"Cell";
     static NSString *firstCellIdentifier = @"firstCell";
     static NSString *separatorCellIdentifier = @"separatorCell";
     static NSString *normalCellIdentifier = @"normalCell";

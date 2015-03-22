@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "uncollapsedTableViewCell.h"
 
-@interface SidebarTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SidebarTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UIView *search;
 @property (nonatomic, assign) BOOL cellOpened;

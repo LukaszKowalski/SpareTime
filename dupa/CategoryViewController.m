@@ -19,6 +19,7 @@
 @property CGPoint beganTouchLocation;
 @property CGPoint endedTouchLocation;
 @property CGRect orginalCategoryContainerPosition;
+@property UIView *statusBar;
 
 @end
 
@@ -34,7 +35,12 @@
     self.sidebar = [[SidebarTableViewController alloc] init];
     self.sidebar.view.frame = CGRectMake(-xForTableView, -44, self.categoryContainer.frame.size.width, self.view.frame.size.height);
     
-    NSLog(@"frame boczny %f", self.sidebar.view.frame.origin.x);
+    
+    self.statusBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    self.statusBar.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.statusBar];
+
+    
     [self.categoryContainer addSubview:self.sidebar.view];
 
     self.draggedToLeftView = NO;

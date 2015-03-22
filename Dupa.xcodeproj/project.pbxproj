@@ -71,7 +71,7 @@
 		C3DEA8491ABCCB4900BE1134 /* trailer.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA8481ABCCB4900BE1134 /* trailer.png */; };
 		C3DEA84B1ABCCE0E00BE1134 /* plakat2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA84A1ABCCE0E00BE1134 /* plakat2.jpg */; };
 		C3DEA84E1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DEA84D1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m */; };
-		C3DEA8501ABDB65200BE1134 /* sidebarTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA84F1ABDB65200BE1134 /* sidebarTableView.xib */; };
+		C3E152281ABEDBC90067F906 /* contentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E152271ABEDBC90067F906 /* contentTableView.m */; };
 		C3F53A0C1A8B817B006E5314 /* PartyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F53A0B1A8B817B006E5314 /* PartyTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -164,7 +164,8 @@
 		C3DEA84A1ABCCE0E00BE1134 /* plakat2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plakat2.jpg; sourceTree = "<group>"; };
 		C3DEA84C1ABCCF5D00BE1134 /* uncollapsedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uncollapsedTableViewCell.h; sourceTree = "<group>"; };
 		C3DEA84D1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uncollapsedTableViewCell.m; sourceTree = "<group>"; };
-		C3DEA84F1ABDB65200BE1134 /* sidebarTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sidebarTableView.xib; sourceTree = "<group>"; };
+		C3E152261ABEDBC90067F906 /* contentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contentTableView.h; sourceTree = "<group>"; };
+		C3E152271ABEDBC90067F906 /* contentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contentTableView.m; sourceTree = "<group>"; };
 		C3F53A0A1A8B817B006E5314 /* PartyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartyTableViewCell.h; sourceTree = "<group>"; };
 		C3F53A0B1A8B817B006E5314 /* PartyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartyTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,32 +212,11 @@
 			children = (
 				C35BE9C41A80CB920036EFB3 /* AppDelegate.h */,
 				C35BE9C51A80CB920036EFB3 /* AppDelegate.m */,
-				C35BE9C71A80CB920036EFB3 /* CategoryViewController.h */,
-				C35BE9C81A80CB920036EFB3 /* CategoryViewController.m */,
-				C3BC28F81AB2FCD000AB68CB /* categoryContainer.h */,
-				C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */,
-				C3A90ADC1A83823C00556E22 /* tableView.xib */,
-				C3DEA84F1ABDB65200BE1134 /* sidebarTableView.xib */,
-				C38294B01A88EB4D00C18124 /* SidebarTableViewController.h */,
-				C38294B11A88EB4D00C18124 /* SidebarTableViewController.m */,
-				C337E9EF1A8E3D3C0065F6E3 /* normalCell.xib */,
-				C337E9F11A8E3D4F0065F6E3 /* normalTableViewCell.h */,
-				C337E9F21A8E3D4F0065F6E3 /* normalTableViewCell.m */,
-				C39998541ABC7C50007D88D1 /* uncollapsedCell.xib */,
-				C3DEA84C1ABCCF5D00BE1134 /* uncollapsedTableViewCell.h */,
-				C3DEA84D1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m */,
-				C3BC28FB1AB3189700AB68CB /* leftViewModel.h */,
-				C3BC28FC1AB3189700AB68CB /* leftViewModel.m */,
-				C337E9E51A8E2F670065F6E3 /* firstCell.xib */,
-				C337E9E71A8E2FAF0065F6E3 /* firstCellTableViewCell.h */,
-				C337E9E81A8E2FAF0065F6E3 /* firstCellTableViewCell.m */,
-				C337E9ED1A8E34860065F6E3 /* separator.xib */,
-				C337E9EA1A8E34700065F6E3 /* separatorTableViewCell.h */,
-				C337E9EB1A8E34700065F6E3 /* separatorTableViewCell.m */,
+				C3E152221ABECD050067F906 /* MainViewController */,
+				C3E152231ABECD250067F906 /* Sidebar */,
+				C3E152251ABECD850067F906 /* Model */,
 				C3F53A0A1A8B817B006E5314 /* PartyTableViewCell.h */,
 				C3F53A0B1A8B817B006E5314 /* PartyTableViewCell.m */,
-				C315E19D1A825CB8009CEC71 /* SpareTimeCategoryButton.h */,
-				C315E19E1A825CB8009CEC71 /* SpareTimeCategoryButton.m */,
 				C35BE9CA1A80CB920036EFB3 /* Main.storyboard */,
 				C35BE9CD1A80CB920036EFB3 /* Images.xcassets */,
 				C35BE9CF1A80CB920036EFB3 /* LaunchScreen.xib */,
@@ -314,6 +294,60 @@
 				C35BE9DB1A80CB920036EFB3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3E152221ABECD050067F906 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C315E19D1A825CB8009CEC71 /* SpareTimeCategoryButton.h */,
+				C315E19E1A825CB8009CEC71 /* SpareTimeCategoryButton.m */,
+				C3BC28F81AB2FCD000AB68CB /* categoryContainer.h */,
+				C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */,
+				C35BE9C71A80CB920036EFB3 /* CategoryViewController.h */,
+				C35BE9C81A80CB920036EFB3 /* CategoryViewController.m */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		C3E152231ABECD250067F906 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				C3E152241ABECD3D0067F906 /* tableViewCells */,
+				C3A90ADC1A83823C00556E22 /* tableView.xib */,
+				C3E152261ABEDBC90067F906 /* contentTableView.h */,
+				C3E152271ABEDBC90067F906 /* contentTableView.m */,
+				C38294B01A88EB4D00C18124 /* SidebarTableViewController.h */,
+				C38294B11A88EB4D00C18124 /* SidebarTableViewController.m */,
+			);
+			name = Sidebar;
+			sourceTree = "<group>";
+		};
+		C3E152241ABECD3D0067F906 /* tableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				C337E9E51A8E2F670065F6E3 /* firstCell.xib */,
+				C337E9E71A8E2FAF0065F6E3 /* firstCellTableViewCell.h */,
+				C337E9E81A8E2FAF0065F6E3 /* firstCellTableViewCell.m */,
+				C337E9ED1A8E34860065F6E3 /* separator.xib */,
+				C337E9EA1A8E34700065F6E3 /* separatorTableViewCell.h */,
+				C337E9EB1A8E34700065F6E3 /* separatorTableViewCell.m */,
+				C337E9EF1A8E3D3C0065F6E3 /* normalCell.xib */,
+				C337E9F11A8E3D4F0065F6E3 /* normalTableViewCell.h */,
+				C337E9F21A8E3D4F0065F6E3 /* normalTableViewCell.m */,
+				C39998541ABC7C50007D88D1 /* uncollapsedCell.xib */,
+				C3DEA84C1ABCCF5D00BE1134 /* uncollapsedTableViewCell.h */,
+				C3DEA84D1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m */,
+			);
+			name = tableViewCells;
+			sourceTree = "<group>";
+		};
+		C3E152251ABECD850067F906 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3BC28FB1AB3189700AB68CB /* leftViewModel.h */,
+				C3BC28FC1AB3189700AB68CB /* leftViewModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,7 +436,6 @@
 				C315E18F1A82532C009CEC71 /* bck_walk.png in Resources */,
 				C3DEA8471ABCCAC000BE1134 /* strzalka.png in Resources */,
 				C3DEA8491ABCCB4900BE1134 /* trailer.png in Resources */,
-				C3DEA8501ABDB65200BE1134 /* sidebarTableView.xib in Resources */,
 				C3DEA8431ABCBE3500BE1134 /* gwiazda.png in Resources */,
 				C315E1931A82532C009CEC71 /* culture.png in Resources */,
 				C315E1901A82532C009CEC71 /* club.png in Resources */,
@@ -466,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E152281ABEDBC90067F906 /* contentTableView.m in Sources */,
 				C315E19F1A825CB8009CEC71 /* SpareTimeCategoryButton.m in Sources */,
 				C35BE9C91A80CB920036EFB3 /* CategoryViewController.m in Sources */,
 				C35BE9C61A80CB920036EFB3 /* AppDelegate.m in Sources */,

@@ -37,6 +37,37 @@ static leftViewModel *sharedBarInstance = nil;    // static instance variable
     [[NSNotificationCenter defaultCenter] postNotificationName:@"resetsideBar" object:nil];
 
 }
+- (NSArray *)getCinemaNames{
+    self.cinemaNames = [[NSArray alloc] initWithObjects:
+    @"Ada Kino Studyjne",
+    @"Antropos",
+    @"Atlantic",
+    @"Cinema City Arkadia",
+    @"Cinema City Bemowo",
+    @"Cinema City Janki",
+    @"Cinema City Mokotów",
+    @"Cinema City Promenada",
+    @"Cinema City Sadyba",
+    @"Iluzjon Filmoteki Narodowej",
+    @"IMAX",
+    @"Kino KC",
+    @"Kino Praha",
+    @"Kino.Lab",
+    @"Kinokawiarnia Stacja Falenica",
+    @"Kinoteka",
+    @"Kultura",
+    @"Luna",
+    @"Multikino Targówek",
+    @"Multikino Ursynów",
+    @"Multikino Wola",
+    @"Multikino Złote Tarasy",
+    @"Muranów",
+    @"Planetarium Niebo Kopernika",
+    @"Świt",
+    @"Wisła", nil];
+    
+    return self.cinemaNames;
+}
 
 
 @end
