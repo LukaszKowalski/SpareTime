@@ -34,18 +34,28 @@
     
     self.sidebar = [[SidebarTableViewController alloc] init];
     self.sidebar.view.frame = CGRectMake(-xForTableView, -44, self.categoryContainer.frame.size.width, self.view.frame.size.height);
-    
+    NSLog(@"view : %@", NSStringFromCGRect(self.view.frame)  );
     
     self.statusBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
     self.statusBar.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.statusBar];
+    self.backgroundImage.frame = CGRectMake(-320, 0, 960, self.view.frame.size.height);
+    NSLog(@"background view : %@", NSStringFromCGRect(self.backgroundImage.frame)  );
 
     
     [self.categoryContainer addSubview:self.sidebar.view];
 
     self.draggedToLeftView = NO;
 
-    
+    for (NSString* family in [UIFont familyNames])
+    {
+        NSLog(@"%@", family);
+        
+        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+        {
+            NSLog(@"  %@", name);
+        }
+    }
 }
 
 - (void)viewDidLoad {
@@ -210,7 +220,7 @@
             [[leftViewModel sharedInstance] reloadTableView];
         }];
         
-        [self.background setImage:[UIImage imageNamed:[self.backgroundsWithTags objectForKey:[NSString stringWithFormat:@"%ld",(long)[sender tag]-1]]]];
+        [self.backgroundImage setImage:[UIImage imageNamed:[self.backgroundsWithTags objectForKey:[NSString stringWithFormat:@"%ld",(long)[sender tag]-1]]]];
         buttonLayer.backgroundColor = [UIColor redColor];
         buttonNameInView.hidden = NO;
         buttonImageInView.hidden = YES;
@@ -250,6 +260,11 @@
 
         if (self.draggedToLeftView == NO){
         self.categoryContainer.frame = CGRectMake(self.oldX + (change.x - start.x), self.categoryContainer.frame.origin.y, self.categoryContainer.frame.size.width, self.categoryContainer.frame.size.height);
+            
+            // background hack try
+            
+//            self.backgroundImage.frame = CGRectMake(self.oldX + (change.x - start.x), self.backgroundImage.frame.origin.y, self.backgroundImage.frame.size.width, self.backgroundImage.frame.size.height);
+        
         }
 
     }

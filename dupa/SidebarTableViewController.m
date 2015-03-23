@@ -67,6 +67,9 @@
     self.contentTableView.backgroundColor = [UIColor clearColor];
     self.contentTableView.frame = CGRectMake(self.contentTableView.frame.origin.x, -150, self.contentTableView.frame.size.width, self.contentTableView.frame.size.height);
     
+    self.contentTableView.rowHeight = UITableViewAutomaticDimension;
+
+    
     // open tableViewCells
     
     self.set_OpenIndex = [[NSMutableSet alloc] init];
@@ -210,14 +213,18 @@
     if (section == 0) {
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 72)];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 26, tableView.frame.size.width, 18)];
 
         label.text = [[leftViewModel sharedInstance] getSideBarCategory];
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont fontWithName:@"Roboto-Light" size:24.f];
         
         UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blur];
         
         visualEffectView.frame = view.frame;
+        view.backgroundColor = [UIColor colorWithRed:109/255.0 green:40/255.0 blue:104.0/255 alpha:0.15];
+
         [view addSubview:visualEffectView];
         [view insertSubview:label aboveSubview:view];
         return view;
@@ -225,9 +232,10 @@
     
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 36)];
     sectionView.backgroundColor = [UIColor colorWithRed:109/255.0 green:40/255.0 blue:104.0/255 alpha:1.0];
-    UILabel *sectionName = [[UILabel alloc] initWithFrame:CGRectMake(6, 4, 200, 20)];
+    UILabel *sectionName = [[UILabel alloc] initWithFrame:CGRectMake(20, 4, 200, 20)];
     sectionName.text = [self.cinemaNames objectAtIndex:section];
     sectionName.textColor = [UIColor whiteColor];
+    sectionName.font = [UIFont fontWithName:@"Roboto-Light" size:16.f];
     [sectionView addSubview:sectionName];
     
     UIButton *headerClick = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 36)];
