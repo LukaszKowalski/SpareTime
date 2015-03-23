@@ -12,6 +12,7 @@
 #import "separatorTableViewCell.h"
 #import "normalTableViewCell.h"
 #import "leftViewModel.h"
+#import "cinemaTableViewCell.h"
 
 #define Category_Box_Height 72
 #define Category_Subclass_Height 36
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *expandedPaths;
 @property (nonatomic, strong) NSMutableSet *set_OpenIndex;
 @property (nonatomic, strong) NSArray *cinemaNames;
+@property (nonatomic, strong) UIView *scrollSearchBar;
 @property (assign, nonatomic) CGPoint lastContentOffset;
 
 @end
@@ -41,6 +43,9 @@
     self.contentTableView.contentInset =  UIEdgeInsetsMake(64, 0, 0, 0);
     
     [self.view addSubview:self.contentTableView];
+    
+    // Adjusting tableView
+    
     self.search = [[UIView alloc] initWithFrame:CGRectMake(8, 8, 274, 36)];
     self.search.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.search];
@@ -62,12 +67,23 @@
     self.contentTableView.backgroundColor = [UIColor clearColor];
     self.contentTableView.frame = CGRectMake(self.contentTableView.frame.origin.x, -150, self.contentTableView.frame.size.width, self.contentTableView.frame.size.height);
     
+    // open tableViewCells
+    
     self.set_OpenIndex = [[NSMutableSet alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(resetTableView)
                                                  name:@"resetsideBar"
                                                object:nil];
+    // Get data for sections
+    
     [self getCinemasNames];
+    
+    // scrollSearchBar
+    
+    self.scrollSearchBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 45)];
+    self.scrollSearchBar.hidden = YES;
+    self.scrollSearchBar.backgroundColor = [UIColor whiteColor];
+    
 }
 -(void)getCinemasNames{
     self.cinemaNames = [[leftViewModel sharedInstance] getCinemaNames];
@@ -90,14 +106,29 @@
 -(void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGPoint currentOffset = scrollView.contentOffset;
+
+    
     if (currentOffset.y > self.lastContentOffset.y)
     {
-        NSLog(@"downward");
+        NSLog(@"downward %f", currentOffset.y);
+        if(currentOffset.y > -20){
+            self.search.hidden = YES;
+            NSLog(@"now");
+        }
+        self.scrollSearchBar.hidden = YES;
         // Downward
     }
     else
     {
-        NSLog(@"upward");
+        NSLog(@"upward %f", currentOffset.y);
+        [self.view addSubview:self.scrollSearchBar];
+        self.scrollSearchBar.hidden = NO;
+
+        if(currentOffset.y < -63){
+            self.search.hidden = NO;
+            self.scrollSearchBar.hidden = YES;
+        }
+        
         // Upward
     }
     self.lastContentOffset = currentOffset;
@@ -117,7 +148,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
     if (sectionIndex == 0) {
-        return 100;
+        return 72;
     }
     return 36;
 }
@@ -125,12 +156,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath.row % 2 == 0){
-        return 16;
+        return 8;
     }
+
     if ([self.expandedPaths containsObject:indexPath]) {
         return 510;
     }
-    return 190;
+    return 72;
+    
+    // if normal return 190
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,7 +199,7 @@
         return 0;
     }
     if ([self.set_OpenIndex containsObject:[NSNumber numberWithInteger:section]]) {
-        return 15; // or what ever is the number of rows
+        return 16; // or what ever is the number of rows
     }
     
     return 0;
@@ -175,7 +209,7 @@
 {
     if (section == 0) {
         
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 72)];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
 
         label.text = [[leftViewModel sharedInstance] getSideBarCategory];
@@ -243,27 +277,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *firstCellIdentifier = @"firstCell";
-    static NSString *separatorCellIdentifier = @"separatorCell";
-    static NSString *normalCellIdentifier = @"normalCell";
-    static NSString *uncollapsedCellIdentifier = @"uncollapsedCell";
+    static NSString *firstCellIdentifier        = @"firstCell";
+    static NSString *separatorCellIdentifier    = @"separatorCell";
+    static NSString *normalCellIdentifier       = @"normalCell";
+    static NSString *uncollapsedCellIdentifier  = @"uncollapsedCell";
+    static NSString *cinemaCellIdentifier       = @"cinemaCell";
 
 
     firstCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:firstCellIdentifier ];
     separatorTableViewCell *separatorCell = [tableView dequeueReusableCellWithIdentifier:separatorCellIdentifier];
     normalTableViewCell *normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
     uncollapsedTableViewCell *uncollapsedCell = [tableView dequeueReusableCellWithIdentifier:uncollapsedCellIdentifier];
-
+    cinemaTableViewCell *cinemaTableViewCell = [tableView dequeueReusableCellWithIdentifier:cinemaCellIdentifier];
     
     if (indexPath.row % 2 == 0 ) {
         [tableView registerNib:[UINib nibWithNibName:@"separator" bundle:nil] forCellReuseIdentifier:separatorCellIdentifier];
         separatorCell = [tableView dequeueReusableCellWithIdentifier:separatorCellIdentifier];
         return separatorCell;
     }
+//    if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath]) {
+//        [tableView registerNib:[UINib nibWithNibName:@"normalCell" bundle:nil] forCellReuseIdentifier:normalCellIdentifier];
+//        normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+//        return normalCell;
+//    }
     if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath]) {
-        [tableView registerNib:[UINib nibWithNibName:@"normalCell" bundle:nil] forCellReuseIdentifier:normalCellIdentifier];
-        normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
-        return normalCell;
+        [tableView registerNib:[UINib nibWithNibName:@"cinemaTableViewCell" bundle:nil] forCellReuseIdentifier:cinemaCellIdentifier];
+        cinemaTableViewCell = [tableView dequeueReusableCellWithIdentifier:cinemaCellIdentifier];
+        return cinemaTableViewCell;
     }
     if([self.expandedPaths containsObject:indexPath]) {
         [tableView registerNib:[UINib nibWithNibName:@"uncollapsedCell" bundle:nil] forCellReuseIdentifier:uncollapsedCellIdentifier];
