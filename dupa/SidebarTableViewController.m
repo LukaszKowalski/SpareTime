@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSMutableArray *expandedPaths;
 @property (nonatomic, strong) NSMutableSet *set_OpenIndex;
 @property (nonatomic, strong) NSArray *cinemaNames;
+@property (nonatomic, strong) NSArray *clubNames;
+
 @property (nonatomic, strong) UIView *scrollSearchBar;
 @property (assign, nonatomic) CGPoint lastContentOffset;
 @property (nonatomic, strong) NSString *categoryName;
@@ -80,7 +82,7 @@
     // Get data for sections
     
     [self getCinemasNames];
-    
+    [self getClubNames];
     // scrollSearchBar
     
     self.scrollSearchBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 45)];
@@ -97,7 +99,9 @@
     self.cinemaNames = [[leftViewModel sharedInstance] getCinemaNames];
 }
 
-
+-(void)getClubNames{
+    self.clubNames = [[leftViewModel sharedInstance] getClubNames];
+}
 
 
 -(void)resetTableView{
@@ -203,7 +207,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.cinemaNames.count;
+    self.categoryName = [[leftViewModel sharedInstance] getSideBarCategory];
+    
+    if([self.categoryName isEqualToString:@"cinema"]){
+        return self.cinemaNames.count;
+    }
+    if ([self.categoryName isEqualToString:@"club"]) {
+         return self.clubNames.count;
+    }
+    
+    return 10;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -220,6 +233,8 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    self.categoryName = [[leftViewModel sharedInstance] getSideBarCategory];
+    
     if (section == 0) {
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 72)];
@@ -233,20 +248,44 @@
         UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blur];
         
         visualEffectView.frame = view.frame;
-        view.backgroundColor = [UIColor colorWithRed:109/255.0 green:40/255.0 blue:104.0/255 alpha:0.15];
-
+        if ([self.categoryName isEqualToString:@"club"]) {
+            
+            view.backgroundColor = [UIColor colorWithRed:83/255.0 green:68/255.0 blue:148/255.0 alpha:0.35];
+            
+        }else{
+        
+            view.backgroundColor = [UIColor colorWithRed:109/255.0 green:40/255.0 blue:104.0/255.0 alpha:0.15];
+        
+        }
+        
         [view addSubview:visualEffectView];
         [view insertSubview:label aboveSubview:view];
         return view;
     }
     
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 36)];
-    sectionView.backgroundColor = [UIColor colorWithRed:109/255.0 green:40/255.0 blue:104.0/255 alpha:1.0];
     UILabel *sectionName = [[UILabel alloc] initWithFrame:CGRectMake(20, 4, 200, 20)];
-    sectionName.text = [self.cinemaNames objectAtIndex:section];
+
+    
+    if ([self.categoryName isEqualToString:@"club"]) {
+        
+        sectionName.text = [self.clubNames objectAtIndex:section];
+        sectionView.backgroundColor = [UIColor colorWithRed:83/255.0 green:68/255.0 blue:148.0/255.0 alpha:1.0];
+        
+    }else{
+        
+        sectionName.text = [self.cinemaNames objectAtIndex:section];
+        sectionView.backgroundColor = [UIColor colorWithRed:109/255.0 green:40/255.0 blue:104.0/255 alpha:1.0];
+        
+    }
+    
     sectionName.textColor = [UIColor whiteColor];
     sectionName.font = [UIFont fontWithName:@"Roboto-Light" size:16.f];
     [sectionView addSubview:sectionName];
+    
+//    83 68 148           - kluby
+//    209 178 132         - kawa
+//    78 194 198          - sport
     
     UIButton *headerClick = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 36)];
     headerClick.tag = section;

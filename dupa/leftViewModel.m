@@ -68,6 +68,18 @@ static leftViewModel *sharedBarInstance = nil;    // static instance variable
     
     return self.cinemaNames;
 }
+- (NSArray *)getClubNames{
+    self.clubNames = [[NSArray alloc] initWithObjects:
+                        @"Bank",
+                        @"DeLite",
+                        @"Capitol",
+                        @"Bal",
+                        @"Bątą",
+                        @"NiePowiem",
+                         nil];
+    
+    return self.clubNames;
+}
 - (NSInteger)numberOfSectionsInTableView{
     return 5;
 }

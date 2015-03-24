@@ -13,12 +13,14 @@
 
 @property (strong, nonatomic) NSString *currentCategory;
 @property (strong, nonatomic) NSArray *cinemaNames;
+@property (strong, nonatomic) NSArray *clubNames;
 
 + (leftViewModel *)sharedInstance;   // class method to return the singleton object
 - (void)sideBarCategory:(NSString *)categoryName;
 - (NSString *)getSideBarCategory;
 - (void)reloadTableView;
 - (NSArray *)getCinemaNames;
+- (NSArray *)getClubNames;
 
 
 @end
