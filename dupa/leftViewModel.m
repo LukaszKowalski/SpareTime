@@ -68,6 +68,14 @@ static leftViewModel *sharedBarInstance = nil;    // static instance variable
     
     return self.cinemaNames;
 }
+- (NSInteger)numberOfSectionsInTableView{
+    return 5;
+}
+
+- (NSInteger)numberOfRowsInTableView{
+    return 50;
+}
+
 
 
 @end

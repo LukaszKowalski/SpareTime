@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSArray *cinemaNames;
 @property (nonatomic, strong) UIView *scrollSearchBar;
 @property (assign, nonatomic) CGPoint lastContentOffset;
+@property (nonatomic, strong) NSString *categoryName;
 
 @end
 
@@ -86,6 +87,11 @@
     self.scrollSearchBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 45)];
     self.scrollSearchBar.hidden = YES;
     self.scrollSearchBar.backgroundColor = [UIColor whiteColor];
+    
+    // setCategoryName
+    
+    
+
     
 }
 -(void)getCinemasNames{
@@ -158,6 +164,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
+    self.categoryName = [[leftViewModel sharedInstance] getSideBarCategory];
+    NSLog(@"kurwa %@", self.categoryName);
+    
     if (indexPath.row % 2 == 0){
         return 8;
     }
@@ -165,7 +174,12 @@
     if ([self.expandedPaths containsObject:indexPath]) {
         return 510;
     }
-    return 72;
+    if ([self.categoryName isEqualToString:@"cinema"]) {
+        NSLog(@"powinno być 72");
+        return 72;
+    }
+
+    return 190;
     
     // if normal return 190
 }
@@ -303,16 +317,17 @@
         separatorCell = [tableView dequeueReusableCellWithIdentifier:separatorCellIdentifier];
         return separatorCell;
     }
-//    if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath]) {
-//        [tableView registerNib:[UINib nibWithNibName:@"normalCell" bundle:nil] forCellReuseIdentifier:normalCellIdentifier];
-//        normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
-//        return normalCell;
-//    }
-    if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath]) {
+
+    if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath] && [self.categoryName isEqualToString:@"cinema"]) {
         [tableView registerNib:[UINib nibWithNibName:@"cinemaTableViewCell" bundle:nil] forCellReuseIdentifier:cinemaCellIdentifier];
         cinemaTableViewCell = [tableView dequeueReusableCellWithIdentifier:cinemaCellIdentifier];
         return cinemaTableViewCell;
+    }else if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath]){
+        [tableView registerNib:[UINib nibWithNibName:@"normalCell" bundle:nil] forCellReuseIdentifier:normalCellIdentifier];
+        normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+        return normalCell;
     }
+    
     if([self.expandedPaths containsObject:indexPath]) {
         [tableView registerNib:[UINib nibWithNibName:@"uncollapsedCell" bundle:nil] forCellReuseIdentifier:uncollapsedCellIdentifier];
         uncollapsedCell = [tableView dequeueReusableCellWithIdentifier:uncollapsedCellIdentifier];

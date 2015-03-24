@@ -9,6 +9,8 @@
 #import "CategoryViewController.h"
 #import "SidebarTableViewController.h"
 #import "leftViewModel.h"
+#import "AFNetworking.h"
+
 
 @interface CategoryViewController ()
 @property (weak, nonatomic) UIView *category;
@@ -26,6 +28,40 @@
 @implementation CategoryViewController
 
 - (void)viewDidAppear:(BOOL)animated{
+    
+    //
+    
+    //Some POST
+    
+//    NSURL *url = [NSURL URLWithString:@"http://sprtime.com"];
+//    NSString *path = @"/mob/catalogueQuery2";
+//    
+//    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+//    [parameters setObject:@"categoryIds" forKey:@"categoryIds"];
+//    
+//    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:url];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+//    
+//    [manager POST:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+//        
+//        NSLog(@"JSON: %@", responseObject);
+//        //here is place for code executed in success case
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//        //here is place for code executed in success case
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error while sending POST"
+//                                                            message:@"Sorry, try again."
+//                                                           delegate:nil
+//                                                  cancelButtonTitle:@"Ok"
+//                                                  otherButtonTitles:nil];
+//        [alertView show];
+//        
+//        NSLog(@"Error: %@", [error localizedDescription]);
+//    }];
+    
+    //
     
     [self drawCategoryButtons];
     
@@ -263,7 +299,7 @@
             
             // background hack try
             
-//            self.backgroundImage.frame = CGRectMake(self.oldX + (change.x - start.x), self.backgroundImage.frame.origin.y, self.backgroundImage.frame.size.width, self.backgroundImage.frame.size.height);
+//            self.backgroundImage.frame = CGRectMake(self.oldX + (change.x/2.5 - start.x), self.backgroundImage.frame.origin.y, self.backgroundImage.frame.size.width, self.backgroundImage.frame.size.height);
         
         }
 
@@ -298,6 +334,10 @@
         [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          self.categoryContainer.frame =CGRectMake(xForTableView, self.categoryContainer.frame.origin.y, self.categoryContainer.frame.size.width, self.categoryContainer.frame.size.height);
+                         
+//                         self.backgroundImage.frame = CGRectMake(-200, self.backgroundImage.frame.origin.y, self.backgroundImage.frame.size.width, self.backgroundImage.frame.size.height);
+
+                         
                      }
                          completion:^(BOOL completed){
                              self.draggedToLeftView = NO;
@@ -315,6 +355,7 @@
     [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          self.categoryContainer.frame =CGRectMake(0, self.categoryContainer.frame.origin.y, self.categoryContainer.frame.size.width, self.categoryContainer.frame.size.height);
+//                          self.backgroundImage.frame = CGRectMake(-320, self.backgroundImage.frame.origin.y, self.backgroundImage.frame.size.width, self.backgroundImage.frame.size.height);
                      }
                      completion:^(BOOL completed){
                          self.draggedToLeftView = NO;
