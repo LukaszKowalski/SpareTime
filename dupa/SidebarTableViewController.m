@@ -54,8 +54,7 @@
     
     UITextField *serchTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 5, 274, 36)];
     
-    NSLog(@"view frame %@", NSStringFromCGRect(self.view.frame));
-    NSLog(@"tableview frame %@", NSStringFromCGRect(self.contentTableView.frame));
+
 
     
     UIColor *color = [UIColor whiteColor];
@@ -119,17 +118,16 @@
     
     if (currentOffset.y > self.lastContentOffset.y)
     {
-        NSLog(@"downward %f", currentOffset.y);
+//        NSLog(@"downward %f", currentOffset.y);
         if(currentOffset.y > -20){
             self.search.hidden = YES;
-            NSLog(@"now");
         }
         self.scrollSearchBar.hidden = YES;
         // Downward
     }
     else
     {
-        NSLog(@"upward %f", currentOffset.y);
+//        NSLog(@"upward %f", currentOffset.y);
         [self.view addSubview:self.scrollSearchBar];
         self.scrollSearchBar.hidden = NO;
 
@@ -165,7 +163,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     self.categoryName = [[leftViewModel sharedInstance] getSideBarCategory];
-    NSLog(@"kurwa %@", self.categoryName);
     
     if (indexPath.row % 2 == 0){
         return 8;
@@ -175,7 +172,6 @@
         return 510;
     }
     if ([self.categoryName isEqualToString:@"cinema"]) {
-        NSLog(@"powinno być 72");
         return 72;
     }
 
@@ -338,7 +334,6 @@
     return cell;
 }
 - (void)changeDay{
-    NSLog(@"Dupa kutas cycki");
 }
 
 @end

@@ -70,29 +70,18 @@
     
     self.sidebar = [[SidebarTableViewController alloc] init];
     self.sidebar.view.frame = CGRectMake(-xForTableView, -44, self.categoryContainer.frame.size.width, self.view.frame.size.height);
-    NSLog(@"view : %@", NSStringFromCGRect(self.view.frame)  );
     
     self.statusBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
     self.statusBar.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.statusBar];
     self.backgroundImage.frame = CGRectMake(-320, 0, 960, self.view.frame.size.height);
-    NSLog(@"background view : %@", NSStringFromCGRect(self.backgroundImage.frame)  );
 
     
     [self.categoryContainer addSubview:self.sidebar.view];
 
     self.draggedToLeftView = NO;
 
-    for (NSString* family in [UIFont familyNames])
-    {
-        NSLog(@"%@", family);
-        
-        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-        {
-            NSLog(@"  %@", name);
-        }
-    }
-}
+   }
 
 - (void)viewDidLoad {
     
@@ -143,9 +132,8 @@
     
     for (int i = 0; i < [backgrounds count]; i++) {
         
-        NSLog(@"%d", i);
+       
         NSString *element = [backgrounds objectAtIndex:i];
-        NSLog (@"Beer: %@", element);
         
         [self.backgroundsWithTags setValue:element forKey:[NSString stringWithFormat:@"%d",i]];
     }
@@ -158,10 +146,8 @@
     BOOL found = NO;
 
     for (UIView *myCategory in self.categoryContainer.subviews) {
-        NSLog(@"jakie tagi %ld", (long)myCategory.tag);
         if (myCategory.tag == tag ) {
             found = YES;
-            NSLog(@"Tag is ok, %lu", (unsigned long)tag);
             self.category = myCategory;
         }
     }
@@ -221,10 +207,8 @@
 
 - (void)buttonFired:(id)sender{
     
-    NSLog(@"sender: %@", sender);
     
     UIView *buttonContent = [sender superview];
-    NSLog(@"buttonContent :%@", buttonContent);
 
     UIView *buttonLayer = [buttonContent viewWithTag:16];
     
@@ -234,7 +218,6 @@
     
     SpareTimeCategoryButton *button = (SpareTimeCategoryButton *)sender;
     
-    NSLog(@"button: %@", button);
     if (button.buttonClicked == YES) {
     
         [self.background setImage:[UIImage imageNamed:@"background"]];
@@ -291,9 +274,7 @@
     else if (gestureRecognizer.state == UIGestureRecognizerStateChanged)
     {
         change = [gestureRecognizer locationInView:self.view];
-        NSLog(@"start: %@", NSStringFromCGPoint(start));
-        NSLog(@"change: %@", NSStringFromCGPoint(change));
-
+        
         if (self.draggedToLeftView == NO){
         self.categoryContainer.frame = CGRectMake(self.oldX + (change.x - start.x), self.categoryContainer.frame.origin.y, self.categoryContainer.frame.size.width, self.categoryContainer.frame.size.height);
             
@@ -311,11 +292,9 @@
         self.endedTouchLocation = end;
         
         if (start.x < change.x && self.categoryContainer.frame.origin.x > 0.3 * self.view.frame.size.width) {
-            NSLog(@"moving left");
             
             [self animateToSideBar];
         }
-        NSLog(@"end: %@", NSStringFromCGPoint(end));
         if (self.categoryContainer.frame.origin.x < 0.95 * self.view.frame.size.width){
             [self backToCategories];
         }
@@ -329,7 +308,6 @@
     float xForTableView = self.categoryContainer.frame.size.width;
 
     if (self.draggedToLeftView == NO) {
-        NSLog(@"loguje");
         self.draggedToLeftView = YES;
         [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveLinear
                      animations:^{

@@ -14,7 +14,6 @@
 - (void)awakeFromNib {
     
     self.categoryName.text = [[leftViewModel sharedInstance] getSideBarCategory];
-    NSLog(@"zzz %@", self.categoryName.text);
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blur];
     
@@ -30,7 +29,7 @@
     // Configure the view for the selected state
 }
 - (void)dupa{
-    NSLog(@"ddupa");
+
 }
 
 @end

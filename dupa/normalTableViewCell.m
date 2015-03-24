@@ -21,7 +21,6 @@
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier cellOpened:(BOOL)cellOpened{
-    NSLog(@"creating cell");
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self){
         
