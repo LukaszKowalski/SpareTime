@@ -32,36 +32,38 @@
     //
     
     //Some POST
+    NSURL *url = [NSURL URLWithString:@"http://sprtime.com:8080"];
     
-//    NSURL *url = [NSURL URLWithString:@"http://sprtime.com"];
-//    NSString *path = @"/mob/catalogueQuery2";
-//    
-//    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-//    [parameters setObject:@"categoryIds" forKey:@"categoryIds"];
-//    
-//    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:url];
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-//    
-//    [manager POST:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-//        
-//        NSLog(@"JSON: %@", responseObject);
-//        //here is place for code executed in success case
-//        
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        
-//        //here is place for code executed in success case
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error while sending POST"
-//                                                            message:@"Sorry, try again."
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"Ok"
-//                                                  otherButtonTitles:nil];
-//        [alertView show];
-//        
-//        NSLog(@"Error: %@", [error localizedDescription]);
-//    }];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    [parameters setObject:@"4" forKey:@"categoryIds"];
+    [parameters setObject:@"2015032519" forKey:@"dateStr"];
+    [parameters setObject:[NSNumber numberWithInteger:0] forKey:@"offset"];
+    [parameters setObject:[NSNumber numberWithInteger:50] forKey:@"limit"];
+
+    NSLog(@"paramtery : %@",parameters);
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:url];
+    
+ 
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"1o1iW7mQHQTg" forHTTPHeaderField:@"X-Token"];
+    
+    [manager POST:@"/mob/catalogueQuery2"
+       parameters:parameters
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              
+              NSDictionary *response = (NSDictionary *)responseObject;
+              NSLog(@"Success: %@", [response objectForKey:@"res"]);
+              
+                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        NSLog(@"Error: %@", error);
+                    }];
     
     //
+    
     
     [self drawCategoryButtons];
     

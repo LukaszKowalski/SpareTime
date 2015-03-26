@@ -82,6 +82,13 @@
 		C3A90ADD1A83823C00556E22 /* tableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3A90ADC1A83823C00556E22 /* tableView.xib */; };
 		C3BC28FA1AB2FCD000AB68CB /* categoryContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */; };
 		C3BC28FD1AB3189700AB68CB /* leftViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BC28FC1AB3189700AB68CB /* leftViewModel.m */; };
+		C3CA850E1AC4005E009CF590 /* clubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CA850C1AC4005E009CF590 /* clubTableViewCell.m */; };
+		C3CA85121AC40440009CF590 /* 10986306_841414799258008_466606830_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3CA85101AC40440009CF590 /* 10986306_841414799258008_466606830_n.jpg */; };
+		C3CA85131AC40440009CF590 /* 1599254_1567912100093295_192755787_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3CA85111AC40440009CF590 /* 1599254_1567912100093295_192755787_n.jpg */; };
+		C3CA85151AC40487009CF590 /* 11005091_776515219084804_1733170308_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3CA85141AC40487009CF590 /* 11005091_776515219084804_1733170308_n.jpg */; };
+		C3CA85161AC412F6009CF590 /* clubTableViewCell.h in Resources */ = {isa = PBXBuildFile; fileRef = C3CA850B1AC4005E009CF590 /* clubTableViewCell.h */; };
+		C3CA85171AC412F6009CF590 /* clubTableViewCell.m in Resources */ = {isa = PBXBuildFile; fileRef = C3CA850C1AC4005E009CF590 /* clubTableViewCell.m */; };
+		C3CA85191AC4131B009CF590 /* clubCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3CA85181AC4131B009CF590 /* clubCell.xib */; };
 		C3DEA8431ABCBE3500BE1134 /* gwiazda.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA8421ABCBE3500BE1134 /* gwiazda.png */; };
 		C3DEA8451ABCBEC100BE1134 /* nawigacja.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA8441ABCBEC100BE1134 /* nawigacja.png */; };
 		C3DEA8471ABCCAC000BE1134 /* strzalka.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DEA8461ABCCAC000BE1134 /* strzalka.png */; };
@@ -217,6 +224,12 @@
 		C3BC28F91AB2FCD000AB68CB /* categoryContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = categoryContainer.m; sourceTree = "<group>"; };
 		C3BC28FB1AB3189700AB68CB /* leftViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftViewModel.h; sourceTree = "<group>"; };
 		C3BC28FC1AB3189700AB68CB /* leftViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftViewModel.m; sourceTree = "<group>"; };
+		C3CA850B1AC4005E009CF590 /* clubTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clubTableViewCell.h; sourceTree = "<group>"; };
+		C3CA850C1AC4005E009CF590 /* clubTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clubTableViewCell.m; sourceTree = "<group>"; };
+		C3CA85101AC40440009CF590 /* 10986306_841414799258008_466606830_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10986306_841414799258008_466606830_n.jpg; sourceTree = "<group>"; };
+		C3CA85111AC40440009CF590 /* 1599254_1567912100093295_192755787_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1599254_1567912100093295_192755787_n.jpg; sourceTree = "<group>"; };
+		C3CA85141AC40487009CF590 /* 11005091_776515219084804_1733170308_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11005091_776515219084804_1733170308_n.jpg; sourceTree = "<group>"; };
+		C3CA85181AC4131B009CF590 /* clubCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = clubCell.xib; sourceTree = "<group>"; };
 		C3DEA8421ABCBE3500BE1134 /* gwiazda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gwiazda.png; sourceTree = "<group>"; };
 		C3DEA8441ABCBEC100BE1134 /* nawigacja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nawigacja.png; sourceTree = "<group>"; };
 		C3DEA8461ABCCAC000BE1134 /* strzalka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strzalka.png; sourceTree = "<group>"; };
@@ -350,6 +363,9 @@
 		C35BE9C01A80CB920036EFB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C3CA85141AC40487009CF590 /* 11005091_776515219084804_1733170308_n.jpg */,
+				C3CA85101AC40440009CF590 /* 10986306_841414799258008_466606830_n.jpg */,
+				C3CA85111AC40440009CF590 /* 1599254_1567912100093295_192755787_n.jpg */,
 				C3FC4F8A1AC03716003C2228 /* 7679582.3.jpg */,
 				C35BE9EC1A80E7330036EFB3 /* 2_small.png */,
 				C3DEA8481ABCCB4900BE1134 /* trailer.png */,
@@ -462,6 +478,9 @@
 				C3FC4F881AC033AD003C2228 /* cinemaTableViewCell.xib */,
 				C3FC4F8C1AC0380E003C2228 /* cinemaTableViewCell.h */,
 				C3FC4F8D1AC0380E003C2228 /* cinemaTableViewCell.m */,
+				C3CA850B1AC4005E009CF590 /* clubTableViewCell.h */,
+				C3CA850C1AC4005E009CF590 /* clubTableViewCell.m */,
+				C3CA85181AC4131B009CF590 /* clubCell.xib */,
 			);
 			name = tableViewCells;
 			sourceTree = "<group>";
@@ -575,6 +594,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3CA85161AC412F6009CF590 /* clubTableViewCell.h in Resources */,
+				C3CA85171AC412F6009CF590 /* clubTableViewCell.m in Resources */,
+				C3CA85121AC40440009CF590 /* 10986306_841414799258008_466606830_n.jpg in Resources */,
 				C3F175061AC05A07004472C8 /* Roboto-Thin.ttf in Resources */,
 				C3F175071AC05A08004472C8 /* Roboto-Regular.ttf in Resources */,
 				C3F175081AC05A08004472C8 /* Roboto-Medium.ttf in Resources */,
@@ -595,6 +617,7 @@
 				C315E1881A82532C009CEC71 /* bck_culture.png in Resources */,
 				C315E18E1A82532C009CEC71 /* bck_meeting.png in Resources */,
 				C315E1821A82532C009CEC71 /* bck_cinema.png in Resources */,
+				C3CA85131AC40440009CF590 /* 1599254_1567912100093295_192755787_n.jpg in Resources */,
 				C315E17C1A82532C009CEC71 /* background1.jpg in Resources */,
 				C315E1971A82532C009CEC71 /* food.png in Resources */,
 				C315E19C1A82532C009CEC71 /* meeting.png in Resources */,
@@ -622,8 +645,10 @@
 				C315E1811A82532C009CEC71 /* bck_beer.png in Resources */,
 				C315E18A1A82532C009CEC71 /* bck_running.png in Resources */,
 				C315E1961A82532C009CEC71 /* drink.png in Resources */,
+				C3CA85151AC40487009CF590 /* 11005091_776515219084804_1733170308_n.jpg in Resources */,
 				C315E1911A82532C009CEC71 /* coffee.png in Resources */,
 				C315E19A1A82532C009CEC71 /* plus.png in Resources */,
+				C3CA85191AC4131B009CF590 /* clubCell.xib in Resources */,
 				C3A90ADD1A83823C00556E22 /* tableView.xib in Resources */,
 				C315E1981A82532C009CEC71 /* games.png in Resources */,
 				C39998551ABC7C50007D88D1 /* uncollapsedCell.xib in Resources */,
@@ -673,6 +698,7 @@
 				C337E9F31A8E3D4F0065F6E3 /* normalTableViewCell.m in Sources */,
 				C31C0A811AC1652F008BF8DD /* UIImageView+AFNetworking.m in Sources */,
 				C3BC28FD1AB3189700AB68CB /* leftViewModel.m in Sources */,
+				C3CA850E1AC4005E009CF590 /* clubTableViewCell.m in Sources */,
 				C337E9E91A8E2FAF0065F6E3 /* firstCellTableViewCell.m in Sources */,
 				C31C0A741AC1652F008BF8DD /* AFHTTPRequestOperation.m in Sources */,
 				C3DEA84E1ABCCF5D00BE1134 /* uncollapsedTableViewCell.m in Sources */,
@@ -803,7 +829,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = dupa/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Dupa;
 			};
@@ -814,7 +840,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = dupa/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Dupa;
 			};

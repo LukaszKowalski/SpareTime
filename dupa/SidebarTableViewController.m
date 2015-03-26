@@ -13,6 +13,7 @@
 #import "normalTableViewCell.h"
 #import "leftViewModel.h"
 #import "cinemaTableViewCell.h"
+#import "clubTableViewCell.h"
 
 #define Category_Box_Height 72
 #define Category_Subclass_Height 36
@@ -109,6 +110,8 @@
   
 
     [self.contentTableView reloadData];
+    [self.expandedPaths removeAllObjects];
+    [self.set_OpenIndex removeAllObjects];
     NSLog(@"reset");
     [self.view layoutIfNeeded];
     
@@ -339,6 +342,7 @@
     static NSString *normalCellIdentifier       = @"normalCell";
     static NSString *uncollapsedCellIdentifier  = @"uncollapsedCell";
     static NSString *cinemaCellIdentifier       = @"cinemaCell";
+    static NSString *clubCellIdentifier         = @"clubCell";
 
 
     firstCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:firstCellIdentifier ];
@@ -346,6 +350,7 @@
     normalTableViewCell *normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
     uncollapsedTableViewCell *uncollapsedCell = [tableView dequeueReusableCellWithIdentifier:uncollapsedCellIdentifier];
     cinemaTableViewCell *cinemaTableViewCell = [tableView dequeueReusableCellWithIdentifier:cinemaCellIdentifier];
+    clubTableViewCell *clubTableViewCell = [tableView dequeueReusableCellWithIdentifier:clubCellIdentifier];
     
     if (indexPath.row % 2 == 0 ) {
         [tableView registerNib:[UINib nibWithNibName:@"separator" bundle:nil] forCellReuseIdentifier:separatorCellIdentifier];
@@ -357,11 +362,17 @@
         [tableView registerNib:[UINib nibWithNibName:@"cinemaTableViewCell" bundle:nil] forCellReuseIdentifier:cinemaCellIdentifier];
         cinemaTableViewCell = [tableView dequeueReusableCellWithIdentifier:cinemaCellIdentifier];
         return cinemaTableViewCell;
-    }else if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath]){
+        
+    }else if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath] && [self.categoryName isEqualToString:@"club"]){
+            [tableView registerNib:[UINib nibWithNibName:@"clubCell" bundle:nil] forCellReuseIdentifier:clubCellIdentifier];
+            clubTableViewCell = [tableView dequeueReusableCellWithIdentifier:clubCellIdentifier];
+            return clubTableViewCell;
+        }else if (indexPath.row % 2 != 0 && ![self.expandedPaths containsObject:indexPath]){
         [tableView registerNib:[UINib nibWithNibName:@"normalCell" bundle:nil] forCellReuseIdentifier:normalCellIdentifier];
         normalCell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
         return normalCell;
     }
+    
     
     if([self.expandedPaths containsObject:indexPath]) {
         [tableView registerNib:[UINib nibWithNibName:@"uncollapsedCell" bundle:nil] forCellReuseIdentifier:uncollapsedCellIdentifier];

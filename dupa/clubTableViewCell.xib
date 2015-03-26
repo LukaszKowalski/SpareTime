@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="clubTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="304" height="181"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="10986306_841414799258008_466606830_n.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rU4-1G-Cna" userLabel="photo1">
+                        <rect key="frame" x="0.0" y="1" width="103" height="102"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="102" id="3mT-22-akE"/>
+                            <constraint firstAttribute="width" constant="103" id="yMa-Lo-4wh"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="1599254_1567912100093295_192755787_n.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pQK-YW-EyS" userLabel="photo2">
+                        <rect key="frame" x="103" y="1" width="103" height="102"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="102" id="3Uh-k5-kuE"/>
+                            <constraint firstAttribute="width" constant="103" id="fed-ri-Bja"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="11005091_776515219084804_1733170308_n.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="poC-jw-buM" userLabel="photo3">
+                        <rect key="frame" x="206" y="1" width="103" height="102"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="103" id="RcG-Rf-29q"/>
+                            <constraint firstAttribute="height" constant="102" id="cLa-lo-ayc"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="plakat2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DuU-pn-UO0" userLabel="poster">
+                        <rect key="frame" x="0.0" y="1" width="304" height="102"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="102" id="iWa-ph-lYb"/>
+                            <constraint firstAttribute="width" constant="304" id="uch-da-Nu4"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="plakat2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zbh-xB-JLa" userLabel="posterMoved">
+                        <rect key="frame" x="103" y="1" width="304" height="102"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="304" id="C66-W1-4E9"/>
+                            <constraint firstAttribute="height" constant="102" id="Xua-Wa-7Ue"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="plakat2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1OD-Fx-kpW" userLabel="posterMovedTwice">
+                        <rect key="frame" x="206" y="1" width="304" height="102"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="102" id="aro-3L-n2T"/>
+                            <constraint firstAttribute="width" constant="304" id="dTD-DE-X3F"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOg-SS-qof" userLabel="changePhoto">
+                        <rect key="frame" x="0.0" y="1" width="304" height="102"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="102" id="XGT-4i-435"/>
+                            <constraint firstAttribute="width" constant="304" id="kfl-a0-Daa"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="poC-jw-buM" firstAttribute="leading" secondItem="pQK-YW-EyS" secondAttribute="trailing" id="0q8-aa-CJR"/>
+                    <constraint firstItem="1OD-Fx-kpW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3Ru-nb-Udv"/>
+                    <constraint firstItem="pQK-YW-EyS" firstAttribute="leading" secondItem="rU4-1G-Cna" secondAttribute="trailing" id="Cjm-ea-Rue"/>
+                    <constraint firstItem="DuU-pn-UO0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DnQ-z3-tdF"/>
+                    <constraint firstItem="BOg-SS-qof" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Hv3-nE-yf2"/>
+                    <constraint firstItem="Zbh-xB-JLa" firstAttribute="leading" secondItem="rU4-1G-Cna" secondAttribute="trailing" id="KeM-Qi-phc"/>
+                    <constraint firstItem="DuU-pn-UO0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Nd3-Yp-m44"/>
+                    <constraint firstItem="rU4-1G-Cna" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Of9-hO-byT"/>
+                    <constraint firstItem="pQK-YW-EyS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ue6-Ev-zLs"/>
+                    <constraint firstItem="BOg-SS-qof" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YOd-eW-CW9"/>
+                    <constraint firstItem="Zbh-xB-JLa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kZr-Kl-mel"/>
+                    <constraint firstItem="1OD-Fx-kpW" firstAttribute="leading" secondItem="pQK-YW-EyS" secondAttribute="trailing" id="o08-Pj-dGB"/>
+                    <constraint firstItem="poC-jw-buM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oBt-IE-w4n"/>
+                    <constraint firstItem="rU4-1G-Cna" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vUG-Nt-gZ6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="changePhoto" destination="BOg-SS-qof" id="bgw-Vv-GL7"/>
+                <outlet property="photoOne" destination="rU4-1G-Cna" id="jVr-pn-oHh"/>
+                <outlet property="photoThree" destination="poC-jw-buM" id="cXg-qx-1Yq"/>
+                <outlet property="photoTwo" destination="pQK-YW-EyS" id="eec-H9-FGN"/>
+                <outlet property="poster" destination="DuU-pn-UO0" id="uGZ-Kv-jqK"/>
+                <outlet property="posterOneLivePhoto" destination="Zbh-xB-JLa" id="rGd-5u-arX"/>
+                <outlet property="posterTwoLivePhotos" destination="1OD-Fx-kpW" id="rky-Hc-YOE"/>
+            </connections>
+            <point key="canvasLocation" x="281" y="176.5"/>
+        </tableViewCell>
+        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="k49-iX-rmS">
+            <rect key="frame" x="0.0" y="0.0" width="304" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <point key="canvasLocation" x="318" y="407"/>
+        </imageView>
+    </objects>
+    <resources>
+        <image name="10986306_841414799258008_466606830_n.jpg" width="640" height="640"/>
+        <image name="11005091_776515219084804_1733170308_n.jpg" width="640" height="640"/>
+        <image name="1599254_1567912100093295_192755787_n.jpg" width="640" height="640"/>
+        <image name="plakat2.jpg" width="1568" height="590"/>
+    </resources>
+</document>
