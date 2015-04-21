@@ -28,49 +28,14 @@
 @implementation CategoryViewController
 
 - (void)viewDidAppear:(BOOL)animated{
-    
-    //
-    
-    //Some POST
-    NSURL *url = [NSURL URLWithString:@"http://sprtime.com:8080"];
-    
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    
-    [parameters setObject:@"4" forKey:@"categoryIds"];
-    [parameters setObject:@"2015032519" forKey:@"dateStr"];
-    [parameters setObject:[NSNumber numberWithInteger:0] forKey:@"offset"];
-    [parameters setObject:[NSNumber numberWithInteger:50] forKey:@"limit"];
 
-    NSLog(@"paramtery : %@",parameters);
-    
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:url];
-    
- 
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setValue:@"1o1iW7mQHQTg" forHTTPHeaderField:@"X-Token"];
-    
-    [manager POST:@"/mob/catalogueQuery2"
-       parameters:parameters
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              
-              NSDictionary *response = (NSDictionary *)responseObject;
-              NSLog(@"Success: %@", [response objectForKey:@"res"]);
-              
-                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                        NSLog(@"Error: %@", error);
-                    }];
-    
-    //
-    
-    
     [self drawCategoryButtons];
     
     self.draggedToLeftView = NO;
     float xForTableView = self.categoryContainer.frame.size.width;
     
     self.sidebar = [[SidebarTableViewController alloc] init];
+    self.sidebar.delegate = self;
     self.sidebar.view.frame = CGRectMake(-xForTableView, -44, self.categoryContainer.frame.size.width, self.view.frame.size.height);
     
     self.statusBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
@@ -271,12 +236,15 @@
     {
         start = [gestureRecognizer locationInView:self.view];
         self.oldX = self.categoryContainer.frame.origin.x;
+        NSLog(@"frame = %f", self.categoryContainer.frame.origin.x);
+
     }
     
     else if (gestureRecognizer.state == UIGestureRecognizerStateChanged)
     {
         change = [gestureRecognizer locationInView:self.view];
-        
+        NSLog(@"frame = %f", self.categoryContainer.frame.origin.x);
+
         if (self.draggedToLeftView == NO){
         self.categoryContainer.frame = CGRectMake(self.oldX + (change.x - start.x), self.categoryContainer.frame.origin.y, self.categoryContainer.frame.size.width, self.categoryContainer.frame.size.height);
             
@@ -290,6 +258,7 @@
     
     else if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
     {
+        
         end = [gestureRecognizer locationInView:self.view];
         self.endedTouchLocation = end;
         
@@ -320,11 +289,12 @@
                          
                      }
                          completion:^(BOOL completed){
-                             self.draggedToLeftView = NO;
+                self.draggedToLeftView = NO;
+                             NSLog(@"end frame = %f", self.categoryContainer.frame.origin.x);
+            
                          }
          ];
     }
-    
 }
 
 - (void) backToCategories
@@ -339,6 +309,7 @@
                      }
                      completion:^(BOOL completed){
                          self.draggedToLeftView = NO;
+
                      }
      ];
 }

@@ -28,6 +28,9 @@ static leftViewModel *sharedBarInstance = nil;    // static instance variable
 - (void)sideBarCategory:(NSString *)categoryName{
     self.currentCategory = categoryName;
     NSLog(@"singleton category = %@", self.currentCategory);
+    if ([self.currentCategory isEqualToString:@"cinema"]) {
+        [self getCinemaContentFromAPI];
+    }
 }
 
 - (NSString *)getSideBarCategory{
@@ -86,6 +89,56 @@ static leftViewModel *sharedBarInstance = nil;    // static instance variable
 
 - (NSInteger)numberOfRowsInTableView{
     return 50;
+}
+
+- (void)getCinemaContentFromAPI{
+    
+    //Some POST
+    NSURL *url = [NSURL URLWithString:@"http://sprtime.com:8080"];
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    [parameters setObject:@"4" forKey:@"categoryIds"];
+    [parameters setObject:@"2015040920" forKey:@"dateStr"];
+    [parameters setObject:[NSNumber numberWithInteger:0] forKey:@"offset"];
+    [parameters setObject:[NSNumber numberWithInteger:50] forKey:@"limit"];
+    
+    NSLog(@"paramtery : %@",parameters);
+    
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:url];
+    
+    
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"dM8Axj5tiQhh" forHTTPHeaderField:@"X-Token"];
+    
+    [manager POST:@"/mob/catalogueQuery2"
+       parameters:parameters
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              
+              NSDictionary *response = (NSDictionary *)responseObject;
+              NSLog(@"Success: %@", response  );
+              
+              NSArray *results = [response objectForKey:@"res"];
+              
+              for (NSDictionary *category in results) {
+                  NSLog(@"%@", category);
+                  NSData *webData = [[category objectForKey:@"payload"] dataUsingEncoding:NSUTF8StringEncoding] ;
+                  
+                  NSError *error;
+                  NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:webData options:0 error:&error];
+                  NSLog(@"JSON DIct: %@", jsonDict);
+              }
+              
+              
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              NSLog(@"Error: %@", error);
+          }];
+    
+    //
+
+    
 }
 
 

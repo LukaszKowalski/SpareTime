@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SidebarTableViewController.h"
+#import "AFNetworking.h"
 
 @interface leftViewModel : NSObject
 
@@ -21,6 +22,6 @@
 - (void)reloadTableView;
 - (NSArray *)getCinemaNames;
 - (NSArray *)getClubNames;
-
+- (void)getCinemaContentFromAPI;
 
 @end

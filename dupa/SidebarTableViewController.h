@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "uncollapsedTableViewCell.h"
+#import "CategoryViewController.h"
+
 
 @interface SidebarTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UIView *search;
 @property (nonatomic, assign) BOOL cellOpened;
 @property (weak, nonatomic) IBOutlet UITableView *contentTableView;
-
+@property (nonatomic, weak) CategoryViewController *delegate;
 
 @end

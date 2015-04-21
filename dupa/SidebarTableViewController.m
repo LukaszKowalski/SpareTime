@@ -31,6 +31,8 @@
 @property (assign, nonatomic) CGPoint lastContentOffset;
 @property (nonatomic, strong) NSString *categoryName;
 
+
+
 @end
 
 @implementation SidebarTableViewController
@@ -54,11 +56,7 @@
     self.search.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.search];
     
-    
     UITextField *serchTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 5, 274, 36)];
-    
-
-
     
     UIColor *color = [UIColor whiteColor];
     serchTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Szukaj" attributes:@{NSForegroundColorAttributeName: color}];
@@ -189,7 +187,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
+        
     if(self.expandedPaths == nil) {
         self.expandedPaths = [[NSMutableArray alloc] init];
     }
@@ -202,7 +201,6 @@
     }
     
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]] withRowAnimation:UITableViewRowAnimationNone];
-    
 }
 
 #pragma mark -
@@ -302,19 +300,22 @@
 }
 
 -(void)headerClicked:(UIButton *) sender{
-
-    if ([self.set_OpenIndex containsObject:[NSNumber numberWithUnsignedInteger:sender.tag]]) {
-        [self.set_OpenIndex removeObject:[NSNumber numberWithUnsignedInteger:sender.tag]];
-        [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationNone];
-    }
-    else{
+    
+    NSLog(@"dupeczka %f", self.delegate.view.frame.origin.x);
+    if (self.delegate.view.frame.origin.x == 0) {
+    
+        if ([self.set_OpenIndex containsObject:[NSNumber numberWithUnsignedInteger:sender.tag]]) {
+            [self.set_OpenIndex removeObject:[NSNumber numberWithUnsignedInteger:sender.tag]];
+            [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationNone];
+        }
+        else{
         
 
-        if (self.set_OpenIndex.count > 0) {
+            if (self.set_OpenIndex.count > 0) {
             //--- a header is opened already, close the previous one before opening the other
             
-            [UIView animateWithDuration:0.5 animations:^{
-                [self.set_OpenIndex enumerateObjectsUsingBlock:^(id obj, BOOL *stop){
+                [UIView animateWithDuration:0.5 animations:^{
+                    [self.set_OpenIndex enumerateObjectsUsingBlock:^(id obj, BOOL *stop){
                     [self.set_OpenIndex removeObject:obj];
                     [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:[obj integerValue]] withRowAnimation:UITableViewRowAnimationNone];
 
@@ -329,9 +330,9 @@
         else{
             [self.set_OpenIndex addObject:[NSNumber numberWithUnsignedInteger:sender.tag]];
             [self.contentTableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationFade];
+            }
         }
     }
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
